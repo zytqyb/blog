@@ -46,6 +46,8 @@
 
                                     <input type="hidden" name="pageIndex" value="1">
                                     <button type="submit" class="btn btn-default">查找</button>
+
+                                    <button type="button" class="btn btn-success">（成功）Success</button>
                                 </div>
 
                             </form>
@@ -130,7 +132,7 @@
 
 
 <script>
-    var idArray = [];
+    let idArray = [];
 
     $(".checkboxes").click(function () {
         idArray.push(this.value);
