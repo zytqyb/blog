@@ -295,6 +295,35 @@ th {
 
 
 
+.btn-success {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+    box-shadow: 0 1px 1px rgba(0,0,0,.075);
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+    box-shadow: 0 1px 1px rgba(0,0,0,.075);
+}
+
+.btn-info {
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    box-shadow: 0 1px 1px rgba(0,0,0,.075);
+}
+
+/* 用户管理界面增加和删除按钮的css样式 */
+.addDel {
+    width: 28%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 20px;
+}
 
 
 

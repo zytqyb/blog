@@ -4,15 +4,14 @@
 }
 
 .swal2-styled {
-    width: 69px;
+    min-width: 69px;
     height: 36px;
     right: 20px;
     font-weight: bold;
     font-size: 14px;
-    position: absolute;
-    right: 20px;
-    bottom: 10px;
 }
+
+
 
 .swal2-popup  {
     height: 245px!important;
