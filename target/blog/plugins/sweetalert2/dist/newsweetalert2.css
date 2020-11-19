@@ -12,7 +12,11 @@
 }
 
 
-
 .swal2-popup  {
     height: 245px!important;
+}
+
+.swal2-actions{
+    margin-top: 30px;
+    justify-content: flex-end;
 }

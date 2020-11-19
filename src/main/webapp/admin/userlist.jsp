@@ -136,7 +136,7 @@
     </form>
 </div>
 
-<script src="/plugins/sweetalert2/dist/sweetalert2.js"></script>
+<script src="${pageContext.request.contextPath}/plugins/sweetalert2/dist/sweetalert2.js"></script>
 
 
 <script>
@@ -147,10 +147,8 @@
             idArray.push(parseInt(this.value));
             console.log(idArray)
         }else {
-            var i=parseInt(parseInt(this.value));
-            console.log(i);
+            let i=parseInt(this.value);
             idArray.splice($.inArray(i,idArray),1);
-            console.log(idArray)
         }
     })
 
@@ -159,7 +157,7 @@
     })
 
     function deleteUser() {
-        if(idArray=="null"||idArray==null||idArray=="undefined"||idArray==undefined||idArray.length==0){
+        if(idArray==null){
             swal.fire({
                 icon: 'error',
                 text: '请选择需要删除的用户',
@@ -173,6 +171,7 @@
             title: '确定删除吗？',
             icon: 'warning',
             showCancelButton: true,
+            cancelButtonText: '取消',
             text: "确认要删除id为["+idArray+"]这些数据吗?",
             confirmButtonText: '确定删除',
             width: '475px',
