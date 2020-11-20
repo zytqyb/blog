@@ -3,11 +3,14 @@ package cn.bsat1314.blog.dao.user;
 import cn.bsat1314.blog.dao.JdbcC3p0Utils;
 import cn.bsat1314.blog.pojo.User;
 import com.mysql.jdbc.StringUtils;
+import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
+import org.junit.jupiter.api.Test;
 
+import java.beans.Transient;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -65,7 +68,6 @@ public class UsersDaoImpl implements UsersDao {
         System.out.println("UserDaoImpl-> getUserCount:" + sql.toString()); // 输出最后完整的sql语句
         // 把list转换成数组 list.toArray()
         Number count = queryRunner.query(sql.toString(), new ScalarHandler<>("count"), list.toArray());
-
         return count.intValue();
     }
 
@@ -91,13 +93,21 @@ public class UsersDaoImpl implements UsersDao {
         // 6->5 第二页  2 5 56789
         // 11->5 第三页
         sql.append(" ORDER BY id LIMIT ?,?");
-        System.out.println(sql.toString());
         currentPageNo = (currentPageNo - 1) * pageSize;
         list.add(currentPageNo);
         list.add(pageSize);
         List<User> userList = queryRunner.query(sql.toString(), new BeanListHandler<User>(User.class), list.toArray());
-        System.out.println(sql.toString());
+        System.out.println("本次查询sql语句:" + sql.toString());
         return userList;
+    }
+
+    // 通过id删除指定用户
+    @Override
+    public int deleteUser(int userId) throws SQLException {
+        QueryRunner queryRunner = new QueryRunner(JdbcC3p0Utils.getDataSource());
+        String sql = "delete from users where id = ?";
+        int update = queryRunner.update(sql, userId);
+        return update;
     }
 
 }

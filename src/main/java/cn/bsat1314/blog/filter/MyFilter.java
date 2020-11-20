@@ -16,13 +16,14 @@ public class MyFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         String servletPath = req.getServletPath();
-        if ( !servletPath.endsWith(".css"))
+        if ( servletPath.endsWith(".css") || servletPath.endsWith(".js") || servletPath.endsWith(".jpg") || servletPath.endsWith(".png"))
         {
+            filterChain.doFilter(servletRequest, servletResponse);
+        }else {
             req.setCharacterEncoding("UTF-8");
             resp.setContentType("text/html;charset=UTF-8");
             filterChain.doFilter(servletRequest, servletResponse);
-        }else {
-            filterChain.doFilter(servletRequest, servletResponse);
+
         }
 
     }

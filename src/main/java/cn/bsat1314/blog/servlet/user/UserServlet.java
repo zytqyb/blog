@@ -8,6 +8,7 @@ import cn.bsat1314.blog.util.Constants;
 import cn.bsat1314.blog.util.PageSupport;
 import com.alibaba.fastjson.JSONArray;
 import com.mysql.jdbc.StringUtils;
+import org.junit.jupiter.api.Test;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,6 +32,8 @@ public class UserServlet extends HttpServlet {
             this.pwdModify(req, resp);
         } else if (method != null && method.equals("query")) {
             this.query(req, resp);
+        } else if (method != null && method.equals("deleteUser")) {
+            this.deleteUser(req, resp);
         }
 
     }
@@ -166,6 +170,24 @@ public class UserServlet extends HttpServlet {
             req.getRequestDispatcher("userlist.jsp").forward(req, resp);
         } catch (ServletException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // 删除用户
+    public void deleteUser(HttpServletRequest req, HttpServletResponse resp) {
+        // 获取前端传过来的id
+        String[] blogId = req.getParameterValues("blogId");
+        UsersServiceImpl usersService = new UsersServiceImpl();
+        for (String s : blogId) {
+            int i = usersService.deleteUserList(Integer.parseInt(s));
+            if (i < 0) {
+                break;
+            }
+        }
+        try {
+            resp.sendRedirect("user?method=query");
         } catch (IOException e) {
             e.printStackTrace();
         }

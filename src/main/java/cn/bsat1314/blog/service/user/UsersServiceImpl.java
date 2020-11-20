@@ -72,10 +72,10 @@ public class UsersServiceImpl implements UsersService{
     @Override
     public List<User> getUserList(String username, int role, int currentPageNo, int pageSize) {
         List<User> userList = null;
-        System.out.println("username --- > " + username);
-        System.out.println("role --- > " + role);
-        System.out.println("currentPageNo --- > " + currentPageNo);
-        System.out.println("pageSize --- > " + pageSize);
+        System.out.println("本次查询用户昵称 --- > " + username);
+        System.out.println("本次查询用户角色 --- > " + role);
+        System.out.println("当前页码 --- > " + currentPageNo);
+        System.out.println("一页存放几条数据 --- > " + pageSize);
         try {
             userList = usersDao.getUserList(username, role, currentPageNo, pageSize);
         } catch (SQLException throwables) {
@@ -84,4 +84,14 @@ public class UsersServiceImpl implements UsersService{
         return userList;
     }
 
+    @Override
+    public int deleteUserList(int userId) {
+        int i = 0;
+        try {
+            i = usersDao.deleteUser(userId);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return i;
+    }
 }

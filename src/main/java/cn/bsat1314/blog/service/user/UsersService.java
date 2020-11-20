@@ -22,4 +22,7 @@ public interface UsersService {
     // 通过条件获取用户列表
     public List<User> getUserList(String username, int role, int currentPageNo, int pageSize);
 
+    // 通过id数组对用户进行删除操作
+    public int deleteUserList(int userId);
+
 }

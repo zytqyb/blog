@@ -23,4 +23,7 @@ public interface UsersDao {
     // 通过条件获取用户列表
     public List<User> getUserList(String username, int role, int currentPageNo, int pageSize) throws SQLException;
 
+    // 通过id删除指定用户
+    public int deleteUser(int userId) throws SQLException;
+
 }

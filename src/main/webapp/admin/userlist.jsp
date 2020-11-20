@@ -24,7 +24,7 @@
                     <div class="panel panel-default" style="width: 100%">
                         <div class="panel-heading">用户管理</div>
                         <div class="panel-body">
-                            <form class="form-inline">
+                            <form class="form-inline" method="post">
                                 <input name="method" value="query" class="input-text" type="hidden">
                                 <div class="form-group">
                                     <label for="exampleInputName2">用户昵称:</label>
@@ -48,34 +48,41 @@
 
                                 </div>
                                 <div class="addDel">
-                                    <button type="button" class="btn btn-success" id="btn"><i class="fa fa-plus"></i> 新增</button>
-                                    <button type="button" class="btn btn-info"><i class="fa fa-edit"></i> 修改</button>
-                                    <button type="button" class="btn btn-danger" onclick="deleteUser()"><i class="fa fa-trash-o"></i> 删除</button>
+                                    <button type="button" class="btn btn-success" id="addBtn"><i class="fa fa-plus"></i>
+                                        新增
+                                    </button>
+                                    <button type="button" class="btn btn-info" id=""><i class="fa fa-edit"></i> 修改
+                                    </button>
+                                    <button type="button" class="btn btn-danger" onclick="deleteUser()"><i
+                                            class="fa fa-trash-o"></i> 删除
+                                    </button>
                                 </div>
 
                             </form>
-                            <table class="table table-striped table table-striped table-bordered bg">
-                                <tr>
-                                    <th><input type="checkbox" class="group-checkable" value="null"></th>
-                                    <th>用户昵称</th>
-                                    <th>用户账号</th>
-                                    <th>用户角色</th>
-                                    <th>创建时间</th>
-                                    <th>修改时间</th>
-                                </tr>
-
-                                <c:forEach var="userslist" items="${userList}">
+                            <form id="blogForm" action="${pageContext.request.contextPath}/admin/user" method="post">
+                                <input type="hidden" name="method" value="deleteUser">
+                                <table class="table table-striped table table-striped table-bordered bg">
                                     <tr>
-                                        <td><input type="checkbox" class="checkboxes" value="${userslist.id}"></td>
-                                        <td>${userslist.username}</td>
-                                        <td>${userslist.usercode}</td>
-                                        <td>${userslist.role}</td>
-                                        <td>${userslist.creationDate}</td>
-                                        <td>${userslist.modifyDate}</td>
+                                        <th><input type="checkbox" class="group-checkable" value="null"></th>
+                                        <th>用户昵称</th>
+                                        <th>用户账号</th>
+                                        <th>用户角色</th>
+                                        <th>创建时间</th>
+                                        <th>修改时间</th>
                                     </tr>
-                                </c:forEach>
-                            </table>
+                                    <c:forEach var="userslist" items="${userList}">
+                                        <tr>
 
+                                            <td><input type="checkbox" name="blogId" value="${userslist.id}"></td>
+                                            <td>${userslist.username}</td>
+                                            <td>${userslist.usercode}</td>
+                                            <td>${userslist.role}</td>
+                                            <td>${userslist.creationDate}</td>
+                                            <td>${userslist.modifyDate}</td>
+                                        </tr>
+                                    </c:forEach>
+                                </table>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -99,65 +106,41 @@
                 </ul>
             </nav>
 
-            <%--            <nav aria-label="Page navigation">--%>
-            <%--                <ul class="pagination">--%>
-            <%--                    <li>--%>
-            <%--                        <a href="#" aria-label="Previous">--%>
-            <%--                            <span aria-hidden="true">&laquo;</span>--%>
-            <%--                        </a>--%>
-            <%--                    </li>--%>
-            <%--                    <%int num = 10;%>--%>
-            <%--                    <%if (num <= 6) {%>--%>
-            <%--                        <%for (int i = 1; i <= 6; i++) {%>--%>
-            <%--                            <li><a href="#"><%=i%></a></li>--%>
-            <%--                        <%}%>--%>
-            <%--                    <%} else if (num > 6) {%>--%>
-            <%--                        <%for (int i = 1; i <= 6; i++) {%>--%>
-            <%--                            <li><a href="#"><%=i%></a></li>--%>
-            <%--                        <%}%>--%>
-            <%--                    <li><a href="#">...</a></li>--%>
-            <%--                    <%}%>--%>
-
-
-            <%--                    <li>--%>
-            <%--                        <a href="#" aria-label="Next">--%>
-            <%--                            <span aria-hidden="true">&raquo;</span>--%>
-            <%--                        </a>--%>
-            <%--                    </li>--%>
-            <%--                </ul>--%>
-            <%--            </nav>--%>
-
         </section>
     </main>
-    <form id="blogForm" action="" method="post">
-        <input type="hidden" name="method" value="delete">
-        <input type="hidden" name="op" value="">
-        <input type="hidden" name="blogId" value="">
-    </form>
 </div>
 
 <script src="${pageContext.request.contextPath}/plugins/sweetalert2/dist/sweetalert2.js"></script>
 
 
 <script>
-    let idArray = [];
-
-    $(".checkboxes").click(function () {
-        if ($(this).prop("checked")) {
-            idArray.push(parseInt(this.value));
-            console.log(idArray)
-        }else {
-            let i=parseInt(this.value);
-            idArray.splice($.inArray(i,idArray),1);
-        }
-    })
-
-    $("#btn").click(function () {
-        console.log(idArray)
-    })
-
     function deleteUser() {
-        if(idArray==null){
+        let flag = false;
+        let idArray = document.getElementsByName("blogId");
+        for (var i = 0; i < idArray.length; i++) {
+            if (idArray[i].checked) {
+                flag = true;
+                break;
+            }
+        }
+        if (flag) {
+            Swal.fire({
+                title: '确定删除吗？',
+                icon: 'warning',
+                showCancelButton: true,
+                cancelButtonText: '取消',
+                text: "确认要删除选中的这些数据吗?",
+                confirmButtonText: '确定删除',
+                width: '475px',
+                reverseButtons: true,
+                confirmButtonColor: '#e64942',
+                cancelButtonColor: '#efefef',
+            }).then((result) => {
+                if (result.value) {
+                    $("#blogForm").submit();
+                }
+            })
+        } else {
             swal.fire({
                 icon: 'error',
                 text: '请选择需要删除的用户',
@@ -165,21 +148,7 @@
                 width: '475px',
                 confirmButtonColor: '#7cd1f9',
             })
-            return;
         }
-        Swal.fire({
-            title: '确定删除吗？',
-            icon: 'warning',
-            showCancelButton: true,
-            cancelButtonText: '取消',
-            text: "确认要删除id为["+idArray+"]这些数据吗?",
-            confirmButtonText: '确定删除',
-            width: '475px',
-            reverseButtons: true,
-            confirmButtonColor: '#e64942',
-            cancelButtonColor: '#efefef',
-        })
-
     }
 
 </script>

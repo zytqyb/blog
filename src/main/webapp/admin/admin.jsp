@@ -91,7 +91,7 @@
             confirmButtonColor: '#7cd1f9',
 
         }).then((result) => {
-            if (result.value) {
+            if (result) {
                 <%request.getSession().removeAttribute("success");%>
             }
         })
