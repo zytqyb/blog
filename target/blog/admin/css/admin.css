@@ -101,12 +101,26 @@ a:focus {
     height: 100%;
     padding: 8px 16px;
     border-radius: .25rem;
+    display: flex;
 }
 
 .left-nav li a:hover {
     background: #494e53;
-
 }
+
+.left-nav li a p {
+    line-height: 24px;
+    height: 24px;
+}
+
+.left-nav .nav-icon {
+    width: 19px;
+    font-size: 19px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+
 
 .user-tx img {
     border-radius: 50%;

@@ -53,7 +53,7 @@ public class UsersServiceImpl implements UsersService{
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return true;
+        return result;
     }
 
     // 查询记录数量

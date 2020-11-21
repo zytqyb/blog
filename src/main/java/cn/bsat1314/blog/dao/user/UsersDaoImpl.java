@@ -3,14 +3,11 @@ package cn.bsat1314.blog.dao.user;
 import cn.bsat1314.blog.dao.JdbcC3p0Utils;
 import cn.bsat1314.blog.pojo.User;
 import com.mysql.jdbc.StringUtils;
-import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
-import org.junit.jupiter.api.Test;
 
-import java.beans.Transient;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -23,8 +20,7 @@ public class UsersDaoImpl implements UsersDao {
     public User getLoginUser(String usercode) throws SQLException {
         QueryRunner queryRunner = new QueryRunner(JdbcC3p0Utils.getDataSource());
         String sql = "select * from users";
-        User user = queryRunner.query(sql, new BeanHandler<User>(User.class));
-        return user;
+        return queryRunner.query(sql, new BeanHandler<>(User.class));
     }
 
     // 注册功能
@@ -33,8 +29,7 @@ public class UsersDaoImpl implements UsersDao {
         QueryRunner queryRunner = new QueryRunner(JdbcC3p0Utils.getDataSource());
         String sql = "insert into users(`username`, `usercode`, `password`) values(?,?,?,?,?)";
         Object[] params = {username, usercode, password, creationDate, modifyDate};
-        int update = queryRunner.update(sql, params);
-        return update;
+        return queryRunner.update(sql, params);
     }
 
     // 修改密码功能
@@ -43,8 +38,7 @@ public class UsersDaoImpl implements UsersDao {
         QueryRunner queryRunner = new QueryRunner(JdbcC3p0Utils.getDataSource());
         String sql = "update users set `password` = ? where id = ?";
         Object[] params = {password, id};
-        int update = queryRunner.update(sql, params);
-        return update;
+        return queryRunner.update(sql, params);
     }
 
     // 根据用户名或者角色查询用户总数
@@ -52,7 +46,7 @@ public class UsersDaoImpl implements UsersDao {
     public int getUserCount(String username, int role) throws SQLException {
         QueryRunner queryRunner = new QueryRunner(JdbcC3p0Utils.getDataSource());
 
-        StringBuffer sql = new StringBuffer();
+        StringBuilder sql = new StringBuilder();
         sql.append("select count(1) as `count` from users u, role r where u.role = r.id");
         ArrayList<Object> list = new ArrayList<>();// 存放我们的参数
 
@@ -75,7 +69,7 @@ public class UsersDaoImpl implements UsersDao {
     @Override
     public List<User> getUserList(String username, int role, int currentPageNo, int pageSize) throws SQLException {
         QueryRunner queryRunner = new QueryRunner(JdbcC3p0Utils.getDataSource());
-        StringBuffer sql = new StringBuffer();
+        StringBuilder sql = new StringBuilder();
         sql.append("SELECT u.*, r.rolename AS userrolename FROM users u, role r WHERE u.role = r.id");
         ArrayList<Object> list = new ArrayList<>();// 存放我们的参数
 
@@ -96,7 +90,7 @@ public class UsersDaoImpl implements UsersDao {
         currentPageNo = (currentPageNo - 1) * pageSize;
         list.add(currentPageNo);
         list.add(pageSize);
-        List<User> userList = queryRunner.query(sql.toString(), new BeanListHandler<User>(User.class), list.toArray());
+        List<User> userList = queryRunner.query(sql.toString(), new BeanListHandler<>(User.class), list.toArray());
         System.out.println("本次查询sql语句:" + sql.toString());
         return userList;
     }
@@ -106,8 +100,7 @@ public class UsersDaoImpl implements UsersDao {
     public int deleteUser(int userId) throws SQLException {
         QueryRunner queryRunner = new QueryRunner(JdbcC3p0Utils.getDataSource());
         String sql = "delete from users where id = ?";
-        int update = queryRunner.update(sql, userId);
-        return update;
+        return queryRunner.update(sql, userId);
     }
 
 }

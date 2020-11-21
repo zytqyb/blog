@@ -76,7 +76,15 @@
                                             <td><input type="checkbox" name="blogId" value="${userslist.id}"></td>
                                             <td>${userslist.username}</td>
                                             <td>${userslist.usercode}</td>
-                                            <td>${userslist.role}</td>
+                                            <c:if test="${userslist.role == 1}">
+                                                <td>系统管理员</td>
+                                            </c:if>
+                                            <c:if test="${userslist.role == 2}">
+                                                <td>博客管理员</td>
+                                            </c:if>
+                                            <c:if test="${userslist.role == 3}">
+                                                <td>普通用户</td>
+                                            </c:if>
                                             <td>${userslist.creationDate}</td>
                                             <td>${userslist.modifyDate}</td>
                                         </tr>
