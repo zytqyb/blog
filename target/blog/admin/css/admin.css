@@ -35,7 +35,11 @@ a:focus {
     background: #343a40;
     width: 250px;
     position: fixed;
+<<<<<<< HEAD
     top: 0;
+=======
+    top: 0px;
+>>>>>>> 60b231ddb7493094316d3f5df0ad6f9e887d7763
     left: 0;
     bottom: 0;
     padding: 0 8px;
@@ -101,11 +105,15 @@ a:focus {
     height: 100%;
     padding: 8px 16px;
     border-radius: .25rem;
+<<<<<<< HEAD
     display: flex;
+=======
+>>>>>>> 60b231ddb7493094316d3f5df0ad6f9e887d7763
 }
 
 .left-nav li a:hover {
     background: #494e53;
+<<<<<<< HEAD
 }
 
 .left-nav li a p {
@@ -122,6 +130,11 @@ a:focus {
 
 
 
+=======
+
+}
+
+>>>>>>> 60b231ddb7493094316d3f5df0ad6f9e887d7763
 .user-tx img {
     border-radius: 50%;
 }
@@ -292,12 +305,12 @@ a:focus {
     height: 32px;
 }
 
-/*设置后台用户管理界面表格的css*/
+/*锟斤拷锟矫猴拷台锟矫伙拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷css*/
 .bg {
     text-align: center;
 
 }
-/*设置后台用户管理界面表格的css*/
+/*锟斤拷锟矫猴拷台锟矫伙拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷css*/
 
 .pager li a {
     color: #337ab7;
@@ -330,9 +343,9 @@ th {
     box-shadow: 0 1px 1px rgba(0,0,0,.075);
 }
 
-/* 用户管理界面增加和删除按钮的css样式 */
+/* 锟矫伙拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟接猴拷删锟斤拷锟斤拷钮锟斤拷css锟斤拷式 */
 .addDel {
-    width: 20%;
+    width: 28%;
     display: flex;
     justify-content: space-between;
     align-items: center;
