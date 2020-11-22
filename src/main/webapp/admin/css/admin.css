@@ -279,6 +279,8 @@ a:focus {
     background: #f7f7f7;
 }
 
+
+
 .modify p, label {
     display: inline;
 }
@@ -332,7 +334,7 @@ th {
 
 /* 用户管理界面增加和删除按钮的css样式 */
 .addDel {
-    width: 28%;
+    width: 20%;
     display: flex;
     justify-content: space-between;
     align-items: center;

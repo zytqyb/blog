@@ -2,8 +2,8 @@ $(function () {
     var error = $("#info").html();
     if (error != null && error.length > 0) {
         $.growl.warning({
-            title: "µÇÂ¼Í¨Öª",
-            message: "ÕËºÅ»òÃÜÂë´íÎó!"
+            title: "ç™»å½•é€šçŸ¥",
+            message: "è´¦å·æˆ–å¯†ç é”™è¯¯!"
         })
     }
 
@@ -15,13 +15,13 @@ $(function () {
             $("#login-form").submit();
         }else if (usercode.val() == "") {
             $.growl.warning({
-                title: "µÇÂ¼Í¨Öª",
-                message: "ÇëÊäÈëÕËºÅ!"
+                title: "ç™»å½•é€šçŸ¥",
+                message: "è¯·è¾“å…¥è´¦å·!"
             })
         }else if (password.val() == "") {
             $.growl.warning({
-                title: "µÇÂ¼Í¨Öª",
-                message: "ÇëÊäÈëÃÜÂë!"
+                title: "ç™»å½•é€šçŸ¥",
+                message: "è¯·è¾“å…¥å¯†ç !"
             })
         }
     })

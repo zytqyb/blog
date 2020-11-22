@@ -4,7 +4,7 @@
 <head>
 
     <jsp:include page="common/css.jsp"/>
-
+    <script src="${pageContext.request.contextPath}/admin/js/admin.js"></script>
 </head>
 
 <body>

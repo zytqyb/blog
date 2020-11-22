@@ -5,7 +5,7 @@ $(function () {
     oldpassword = $("#oldpassword");
     newpassword = $("#newpassword");
     tj = $("#tj");
-    // Ê¹ÓÃajaxÑéÖ¤ÊäÈëµÄÃÜÂëºÍµÇÂ¼µÄÃÜÂëÊÇ·ñÏàµÈ
+    // ä½¿ç”¨ajaxéªŒè¯è¾“å…¥çš„å¯†ç å’Œç™»å½•çš„å¯†ç æ˜¯å¦ç›¸ç­‰
     oldpassword.on("blur", function () {
         $.ajax({
             type: "GET",
@@ -13,36 +13,36 @@ $(function () {
             data: {method: "pwdmodify", oldpassword: oldpassword.val()},
             dataType: "json",
             success: function (data) {
-                if (data.result == "true") { //¾ÉÃÜÂëÕýÈ·
-                    validateTip(oldpassword.prev(), {"color": "green", "margin-bottom": "5px"}, imgYes + "¾ÉÃÜÂëÕýÈ·", true)
-                } else if (data.result == "false") { //¾ÉÃÜÂëÊäÈë²»ÕýÈ·
-                    validateTip(oldpassword.prev(), {"color": "red", "margin-bottom": "5px"}, imgNo + "Ô­ÃÜÂëÊäÈë²»ÕýÈ·", false)
-                } else if (data.result == "sessionerror") { // Session¹ýÆÚ
+                if (data.result == "true") { //æ—§å¯†ç æ­£ç¡®
+                    validateTip(oldpassword.prev(), {"color": "green", "margin-bottom": "5px"}, imgYes + "æ—§å¯†ç æ­£ç¡®", true)
+                } else if (data.result == "false") { //æ—§å¯†ç è¾“å…¥ä¸æ­£ç¡®
+                    validateTip(oldpassword.prev(), {"color": "red", "margin-bottom": "5px"}, imgNo + "åŽŸå¯†ç è¾“å…¥ä¸æ­£ç¡®", false)
+                } else if (data.result == "sessionerror") { // Sessionè¿‡æœŸ
                     validateTip(oldpassword.prev(), {
                         "color": "red",
                         "margin-bottom": "5px"
-                    }, imgNo + "µ±Ç°ÓÃ»§session¹ýÆÚ, ÇëÖØÐÂµÇÂ¼", false)
-                } else if (data.result == "error") { // ¾ÉÃÜÂëÊäÈëÎª¿Õ
-                    validateTip(oldpassword.prev(), {"color": "red", "margin-bottom": "5px"}, imgNo + "ÇëÊäÈë¾ÉÃÜÂë", false)
+                    }, imgNo + "å½“å‰ç”¨æˆ·sessionè¿‡æœŸ, è¯·é‡æ–°ç™»å½•", false)
+                } else if (data.result == "error") { // æ—§å¯†ç è¾“å…¥ä¸ºç©º
+                    validateTip(oldpassword.prev(), {"color": "red", "margin-bottom": "5px"}, imgNo + "è¯·è¾“å…¥æ—§å¯†ç ", false)
                 }
             },
             error: function (data) {
-                // ÇëÇó³ö´í
-                validateTip(oldpassword.prev(), {"color": "red", "margin-bottom": "5px"}, imgNo + "ÇëÇó³ö´í", false)
+                // è¯·æ±‚å‡ºé”™
+                validateTip(oldpassword.prev(), {"color": "red", "margin-bottom": "5px"}, imgNo + "è¯·æ±‚å‡ºé”™", false)
             }
         })
     }).on("focus", function () {
-        validateTip(oldpassword.prev(), {"color": "red", "margin-bottom": "5px"}, imgNo + "ÇëÊäÈë¾ÉÃÜÂë", false)
+        validateTip(oldpassword.prev(), {"color": "red", "margin-bottom": "5px"}, imgNo + "è¯·è¾“å…¥æ—§å¯†ç ", false)
     });
 
-    // ÑéÖ¤ÐÂÃÜÂëµÄ¿ÉÓÃÐÔ
+    // éªŒè¯æ–°å¯†ç çš„å¯ç”¨æ€§
     newpassword.on("focus", function () {
-        validateTip(newpassword.prev(), {"color": "#666666"}, "* ÃÜÂë³¤¶È±ØÐëÊÇ´óÓÚµÈÓÚ6Ð¡ÓÚ20", false);
+        validateTip(newpassword.prev(), {"color": "#666666"}, "* å¯†ç é•¿åº¦å¿…é¡»æ˜¯å¤§äºŽç­‰äºŽ6å°äºŽ20", false);
     }).on("blur", function () {
         if (newpassword.val() != null && newpassword.val().length >= 6 && newpassword.val().length < 20) {
-            validateTip(newpassword.prev(), {"color": "green"}, imgYes + "ÃÜÂë¿ÉÓÃ", true);
+            validateTip(newpassword.prev(), {"color": "green"}, imgYes + "å¯†ç å¯ç”¨", true);
         } else {
-            validateTip(newpassword.prev(), {"color": "red"}, imgNo + "ÃÜÂëÊäÈë²»·ûºÏ¹æ·¶£¬ÇëÖØÐÂÊäÈë", false);
+            validateTip(newpassword.prev(), {"color": "red"}, imgNo + "å¯†ç è¾“å…¥ä¸ç¬¦åˆè§„èŒƒï¼Œè¯·é‡æ–°è¾“å…¥", false);
         }
     });
 
@@ -51,7 +51,7 @@ $(function () {
         oldpassword.blur();
         newpassword.blur();
         if (oldpassword.attr("status") == "true" && newpassword.attr("status") == "true") {
-            if (confirm("È·¶¨ÒªÐÞ¸ÄÃÜÂë£¿")) {
+            if (confirm("ç¡®å®šè¦ä¿®æ”¹å¯†ç ï¼Ÿ")) {
                 $("#modify-password").submit();
             }
         }

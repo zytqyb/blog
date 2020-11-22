@@ -4,6 +4,7 @@ import cn.bsat1314.blog.dao.user.UsersDao;
 import cn.bsat1314.blog.dao.user.UsersDaoImpl;
 import cn.bsat1314.blog.pojo.User;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -27,19 +28,21 @@ public class UsersServiceImpl implements UsersService{
     }
 
     // 实现用户注册
-    //@Override
-    //public boolean adduser(String username, String usercode, String password) {
-    //    boolean result = false;
-    //    try {
-    //        int i = usersDao.addUser(username, usercode, password);
-    //        if (i > 0) {
-    //            result = false;
-    //        }
-    //    } catch (SQLException throwables) {
-    //        throwables.printStackTrace();
-    //    }
-    //    return result;
-    //}
+    @Override
+    public boolean addUser(String username, String usercode, String password, String role, Date creationDate, Date modifyDate) {
+        boolean result = false;
+        try {
+            int i = usersDao.addUser(username, usercode, password, role, creationDate, modifyDate);
+            if (i > 0) {
+                result = true;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
+    }
+
+
 
     // 实现用户修改密码
     @Override
@@ -84,6 +87,7 @@ public class UsersServiceImpl implements UsersService{
         return userList;
     }
 
+    // 通过id删除用户
     @Override
     public int deleteUserList(int userId) {
         int i = 0;
@@ -93,5 +97,32 @@ public class UsersServiceImpl implements UsersService{
             throwables.printStackTrace();
         }
         return i;
+    }
+
+    // 通过id获取需要修改的用户信息
+    @Override
+    public User getModifyUser(int id) {
+        User modifyUser = null;
+        try {
+            modifyUser = usersDao.getModifyUser(id);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return modifyUser;
+    }
+
+    // 通过前台传入的数据修改用户信息
+
+    @Override
+    public boolean updateUser(String usercode, String username, String password, int role, Date modifyDate) {
+        boolean result = false;
+        try {
+            if (usersDao.modifyUser(usercode, username, password, role, modifyDate) > 0) {
+                result = true;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
     }
 }

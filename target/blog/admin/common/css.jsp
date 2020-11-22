@@ -14,11 +14,13 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/sweetalert2/dist/sweetalert2.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/sweetalert2/dist/newsweetalert2.css">
 <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/admin/css/base.css">
 <script src="${pageContext.request.contextPath}/plugins/jquery/jquery.js"></script>
 <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
 <script src="${pageContext.request.contextPath}/plugins/bootstrap/js/bootstrap.min.js"></script>
-<script src="${pageContext.request.contextPath}/admin/js/common.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/jquery_growl/jquery.growl.js"></script>
+<script src="${pageContext.request.contextPath}/plugins/sweetalert2/dist/sweetalert2.min.js"></script>
+<script src="${pageContext.request.contextPath}/admin/js/common.js"></script>
 <script src="${pageContext.request.contextPath}/admin/js/admin.js"></script>
 
 

@@ -1,7 +1,7 @@
 $(function () {
 
 
-    // 实现分页按钮判断
+    // 瀹炵幇鍒嗛〉鎸夐挳鍒ゆ柇
     function flip(rs) {
         if (rs.is(".disabled")) {
             rs.click(function (e) {

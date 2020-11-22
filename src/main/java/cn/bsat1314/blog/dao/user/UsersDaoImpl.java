@@ -7,6 +7,7 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
+import org.junit.jupiter.api.Test;
 
 import java.sql.Date;
 import java.sql.SQLException;
@@ -19,16 +20,16 @@ public class UsersDaoImpl implements UsersDao {
     @Override
     public User getLoginUser(String usercode) throws SQLException {
         QueryRunner queryRunner = new QueryRunner(JdbcC3p0Utils.getDataSource());
-        String sql = "select * from users";
-        return queryRunner.query(sql, new BeanHandler<>(User.class));
+        String sql = "select * from users where usercode = ?";
+        return queryRunner.query(sql, new BeanHandler<>(User.class), usercode);
     }
 
     // 注册功能
     @Override
-    public int addUser(String username, String usercode, String password, Date creationDate, Date modifyDate) throws SQLException {
+    public int addUser(String username, String usercode, String password, String role,  Date creationDate, Date modifyDate) throws SQLException {
         QueryRunner queryRunner = new QueryRunner(JdbcC3p0Utils.getDataSource());
-        String sql = "insert into users(`username`, `usercode`, `password`) values(?,?,?,?,?)";
-        Object[] params = {username, usercode, password, creationDate, modifyDate};
+        String sql = "insert into users(`username`, `usercode`, `password`, `role`, `creationDate`, `modifyDate`) values(?,?,?,?,?,?)";
+        Object[] params = {username, usercode, password, role, creationDate, modifyDate};
         return queryRunner.update(sql, params);
     }
 
@@ -101,6 +102,22 @@ public class UsersDaoImpl implements UsersDao {
         QueryRunner queryRunner = new QueryRunner(JdbcC3p0Utils.getDataSource());
         String sql = "delete from users where id = ?";
         return queryRunner.update(sql, userId);
+    }
+
+    @Override
+    public User getModifyUser(int id) throws SQLException {
+        QueryRunner queryRunner = new QueryRunner(JdbcC3p0Utils.getDataSource());
+        String sql = "select * from users where id= ?";
+        return queryRunner.query(sql, new BeanHandler<>(User.class), id);
+    }
+
+    // 通过传入的数据对用户信息进行修改
+    @Override
+    public int modifyUser(String usercode, String username, String password, int role, Date modifyDate) throws SQLException {
+        QueryRunner queryRunner = new QueryRunner(JdbcC3p0Utils.getDataSource());
+        Object[] params = {username, password, role, modifyDate,usercode };
+        String sql = "UPDATE users SET `username` = ?, `password` = ?, `role` = ?, `modifyDate` = ? where `usercode` = ?";
+        return queryRunner.update(sql, params);
     }
 
 }

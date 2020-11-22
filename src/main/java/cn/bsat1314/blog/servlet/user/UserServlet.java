@@ -10,16 +10,14 @@ import com.alibaba.fastjson.JSONArray;
 import com.mysql.jdbc.StringUtils;
 import org.junit.jupiter.api.Test;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 // 实现Servlet复用
 public class UserServlet extends HttpServlet {
@@ -34,6 +32,14 @@ public class UserServlet extends HttpServlet {
             this.query(req, resp);
         } else if (method != null && method.equals("deleteUser")) {
             this.deleteUser(req, resp);
+        } else if (method != null && method.equals("codeAdd")) {
+            this.codeAdd(req, resp);
+        } else if (method != null && method.equals("addUser")) {
+            this.addUser(req, resp);
+        } else if (method != null && method.equals("getModifyUser")) {
+            this.getModifyUser(req, resp);
+        } else if (method != null && method.equals("modifyUser")) {
+            this.modifyUser(req, resp);
         }
 
     }
@@ -67,9 +73,7 @@ public class UserServlet extends HttpServlet {
         }
         try {
             req.getRequestDispatcher("modify.jsp").forward(req, resp);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
     }
@@ -192,4 +196,106 @@ public class UserServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+
+    // 添加用户时验证输入的账户和数据库内是否有重复
+    public void codeAdd(HttpServletRequest req, HttpServletResponse resp) {
+        // 获取前端传入的账号 addUserCode
+        String addUserCode = req.getParameter("addUserCode");
+        if (addUserCode != null) {
+            UsersServiceImpl usersService = new UsersServiceImpl();
+            User user = usersService.login(addUserCode);
+            Map<String, String> resultMap = new HashMap<String, String>();
+            if (user == null) {
+                resultMap.put("result", "yes");
+            }else {
+                resultMap.put("result", "no");
+            }
+
+            try {
+                resp.setContentType("application/json"); // 设置返回的是json值
+                PrintWriter writer = resp.getWriter();
+                writer.write(JSONArray.toJSONString(resultMap));
+                writer.flush();
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    // 添加用户
+    public void addUser(HttpServletRequest req, HttpServletResponse resp) {
+        System.out.println("进入添加用户");
+        // 获取前端表单数据
+        String addUserName = req.getParameter("addUserName");
+        if (addUserName != null) {
+            String addUserCode = req.getParameter("addUserCode");
+            String addPassword = req.getParameter("addPassword");
+            String addRole = req.getParameter("addRole");
+            UsersServiceImpl usersService = new UsersServiceImpl();
+            java.sql.Date time= new java.sql.Date(new Date().getTime());
+            boolean result = usersService.addUser(addUserName, addUserCode, addPassword, addRole, time, null);
+            if (result) {
+                try {
+                    req.getSession().setAttribute("addResult","true");
+                    resp.sendRedirect("/admin/user?method=query");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    // 通过id获取需要修改的用户
+    public void getModifyUser(HttpServletRequest req, HttpServletResponse resp) {
+        String id = req.getParameter("id");
+        if (id != null) {
+            UsersServiceImpl usersService = new UsersServiceImpl();
+            User modifyUser = usersService.getModifyUser(Integer.parseInt(id));
+            Map<String, String> resultMap = new HashMap<String, String>();
+            if (modifyUser != null) {
+                resultMap.put("username", modifyUser.getUsername());
+                resultMap.put("usercode", modifyUser.getUsercode());
+                resultMap.put("password", modifyUser.getPassword());
+                resultMap.put("role", String.valueOf(modifyUser.getRole()));
+                try {
+                    resp.setContentType("application/json"); // 设置返回的是json值
+                    PrintWriter writer = resp.getWriter();
+                    writer.write(JSONArray.toJSONString(resultMap));
+                    writer.flush();
+                    writer.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }else {
+            System.out.println("没有传入id");
+        }
+    }
+
+    // 修改用户信息
+    public void modifyUser(HttpServletRequest req, HttpServletResponse resp) {
+        String modifyUserCode = req.getParameter("modifyUserCode");
+        System.out.println(modifyUserCode);
+        String modifyUserName = req.getParameter("modifyUserName");
+        String modifyPassword = req.getParameter("modifyPassword");
+        String modifyRole = req.getParameter("modifyRole");
+        // 获取修改用户的系统时间
+        java.sql.Date modifyDate= new java.sql.Date(new Date().getTime());
+        if (modifyUserCode != null) {
+            UsersServiceImpl usersService = new UsersServiceImpl();
+            boolean b = usersService.updateUser(modifyUserCode, modifyUserName, modifyPassword, Integer.parseInt(modifyRole), modifyDate);
+            System.out.println(b);
+            if (b) {
+                try {
+                    req.getSession().setAttribute("modifyResult","true");
+                    resp.sendRedirect("/admin/user?method=query");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            System.out.println("修改成功");
+        }System.out.println("修改失败");
+    }
+
 }

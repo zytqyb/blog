@@ -2,6 +2,8 @@ package cn.bsat1314.blog.service.user;
 
 import cn.bsat1314.blog.pojo.User;
 
+import java.sql.Date;
+import java.sql.SQLException;
 import java.util.List;
 
 
@@ -10,8 +12,8 @@ public interface UsersService {
     // 用户登录
     public User login(String usercode);
 
-    //// 用户注册
-    //public boolean adduser(String username, String usercode, String password);
+    // 添加用户
+    public boolean addUser(String username, String usercode, String password, String role, Date creationDate, Date modifyDate);
 
     // 修改当前用户密码
     public boolean updatepwd(int id, String password);
@@ -22,7 +24,13 @@ public interface UsersService {
     // 通过条件获取用户列表
     public List<User> getUserList(String username, int role, int currentPageNo, int pageSize);
 
-    // 通过id数组对用户进行删除操作
+    // 通过id对用户进行删除操作
     public int deleteUserList(int userId);
+
+    // 通过id获取需要修改的用户
+    public User getModifyUser(int id);
+
+    // 通过前台传入的数据修改用户信息
+    public boolean updateUser(String usercode, String username, String password, int role, Date modifyDate);
 
 }
