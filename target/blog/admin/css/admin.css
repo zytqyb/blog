@@ -294,12 +294,12 @@ a:focus {
     height: 32px;
 }
 
-/*设置后台用户管理界面表格的css*/
+/*璁剧疆鍚庡彴鐢ㄦ埛绠＄悊鐣岄潰琛ㄦ牸鐨刢ss*/
 .bg {
     text-align: center;
 
 }
-/*设置后台用户管理界面表格的css*/
+/*璁剧疆鍚庡彴鐢ㄦ埛绠＄悊鐣岄潰琛ㄦ牸鐨刢ss*/
 
 .pager li a {
     color: #337ab7;
@@ -332,9 +332,9 @@ th {
     box-shadow: 0 1px 1px rgba(0,0,0,.075);
 }
 
-/* 用户管理界面增加和删除按钮的css样式 */
+/* 鐢ㄦ埛绠＄悊鐣岄潰澧炲姞鍜屽垹闄ゆ寜閽殑css鏍峰紡 */
 .addDel {
-    width: 20%;
+    width: 25%;
     display: flex;
     justify-content: space-between;
     align-items: center;

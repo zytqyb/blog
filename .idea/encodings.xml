@@ -2,14 +2,7 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/bsat1314/blog/util/PageSupport.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/admin/css/base.css" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/admin/js/adduser.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/admin/js/admin.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/admin/js/common.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/admin/js/pwdmodify.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/home/js/login.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/plugins/jquery_growl/jquery.growl.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/admin/css/admin.css" charset="UTF-8" />
   </component>
 </project>

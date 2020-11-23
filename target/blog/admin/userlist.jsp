@@ -5,6 +5,7 @@
 <head>
     <jsp:include page="common/css.jsp"/>
 
+
 </head>
 <body>
 <div class="container-fluid">
@@ -356,7 +357,7 @@
                 confirmButtonColor: '#7cd1f9',
             })
         } else {
-            modifyUsercs(index);
+            modifyUsers(index);
             $('#modifyUser').modal();
             $("#modifyUserBtn").click(function () {
                 $("#modifyForm").submit();
@@ -364,7 +365,7 @@
         }
     }
 
-    function modifyUsercs(index) {
+    function modifyUsers(index) {
         $.ajax({
             type: "post",
             url: "/admin/user",

@@ -17,14 +17,14 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="${pageContext.request.contextPath}/admin/addarticle.jsp">
                 <i class="nav-icon fa fa fa-pencil-square-o"></i>
                 <p>发布博客</p>
             </a>
         </li>
         <li class="nav-header">管理模块</li>
         <li>
-            <a href="${pageContext.request.contextPath}/admin/AdminServlet">
+            <a href="#">
                 <i class="fa fa-list-alt nav-icon"></i>
                 <p>文章管理</p>
             </a>
