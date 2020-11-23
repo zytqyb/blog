@@ -7,3 +7,7 @@
 #addForm .form-group p, #modifyForm .form-group p{
     display: inline;
 }
+
+.dflex {
+    display: flex!important;
+}

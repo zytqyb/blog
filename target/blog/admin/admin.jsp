@@ -2,13 +2,15 @@
 
 <html>
 <head>
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>小破站 | 管理后台</title>
     <jsp:include page="common/css.jsp"/>
-    <script src="${pageContext.request.contextPath}/admin/js/admin.js"></script>
 </head>
-
 <body>
-<div style="display: none" id="info" class="info">${success}</div>
+
 <div class="container-fluid">
 
     <jsp:include page="common/admin_left.jsp"/>
@@ -79,10 +81,19 @@
     </main>
 
 </div>
+<!-- 加载 jquery-->
+<script src="${pageContext.request.contextPath}/plugins/jquery/jquery.js"></script>
+<!-- 加载 Bootstrap-->
+<script src="${pageContext.request.contextPath}/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+<script src="${pageContext.request.contextPath}/plugins/jquery_growl/jquery.growl.js"></script>
+<script src="${pageContext.request.contextPath}/plugins/sweetalert2/dist/sweetalert2.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/admin.js"></script>
 <script src="/plugins/sweetalert2/dist/sweetalert2.js"></script>
 <script>
-    var success = $("#info").html();
-    if (success != null && success.length > 0) {
+
+    if (${success != null}) {
         Swal.fire({
             icon: 'success',
             text: '欢迎您的登录:${username}',

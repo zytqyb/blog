@@ -3,9 +3,12 @@
 <html lang="zh-CN">
 
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>小破站 | 管理后台</title>
     <jsp:include page="common/css.jsp"/>
-
-
 </head>
 <body>
 <div class="container-fluid">
@@ -261,10 +264,16 @@
         </section>
     </main>
 </div>
+<!-- 加载 jquery-->
+<script src="${pageContext.request.contextPath}/plugins/jquery/jquery.js"></script>
+<!-- 加载 Bootstrap-->
+<script src="${pageContext.request.contextPath}/plugins/bootstrap/js/bootstrap.min.js"></script>
 
-
-<script src="${pageContext.request.contextPath}/admin/js/adduser.js"></script>
-
+<script src="${pageContext.request.contextPath}/plugins/jquery_growl/jquery.growl.js"></script>
+<script src="${pageContext.request.contextPath}/plugins/sweetalert2/dist/sweetalert2.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/admin.js"></script>
+<script src="js/userslist.js"></script>
 <script>
     if (${addResult != null}) {
         swal.fire({
@@ -289,105 +298,6 @@
             <%request.getSession().removeAttribute("modifyResult");%>
         })
     }
-
-    function deleteUser() {
-        let flag = false;
-        let idArray = document.getElementsByName("blogId");
-        for (let i = 0; i < idArray.length; i++) {
-            if (idArray[i].checked) {
-                flag = true;
-                break;
-            }
-        }
-        if (flag) {
-            Swal.fire({
-                title: '确定删除吗？',
-                icon: 'warning',
-                showCancelButton: true,
-                cancelButtonText: '取消',
-                text: "确认要删除选中的这些数据吗?",
-                confirmButtonText: '确定删除',
-                width: '475px',
-                reverseButtons: true,
-                confirmButtonColor: '#e64942',
-                cancelButtonColor: '#efefef',
-            }).then((result) => {
-                if (result.value) {
-                    $("#blogForm").submit();
-                }
-            })
-        } else {
-            swal.fire({
-                icon: 'error',
-                text: '请选择需要删除的用户',
-                confirmButtonText: 'ok',
-                width: '475px',
-                confirmButtonColor: '#7cd1f9',
-            })
-        }
-    }
-
-    function modifyUser() {
-        let flag = 0;
-        let index;
-        let idArray = document.getElementsByName("blogId");
-        for (let i = 0; i < idArray.length; i++) {
-            if (idArray[i].checked) {
-                flag++;
-                index = idArray[i].value;
-            }
-            if (flag > 1) {
-                break;
-            }
-        }
-        if (flag === 0) {
-            swal.fire({
-                icon: 'error',
-                text: '请选择一个用户进行修改',
-                confirmButtonText: 'ok',
-                width: '475px',
-                confirmButtonColor: '#7cd1f9',
-            })
-        } else if (flag > 1) {
-            swal.fire({
-                icon: 'error',
-                text: '只能选择一个用户进行修改',
-                confirmButtonText: 'ok',
-                width: '475px',
-                confirmButtonColor: '#7cd1f9',
-            })
-        } else {
-            modifyUsers(index);
-            $('#modifyUser').modal();
-            $("#modifyUserBtn").click(function () {
-                $("#modifyForm").submit();
-            })
-        }
-    }
-
-    function modifyUsers(index) {
-        $.ajax({
-            type: "post",
-            url: "/admin/user",
-            data: {method: "getModifyUser", id: index},
-            dataType: "json",
-            success: function (data) {
-                $("#modifyUserName").val(data.username);
-                $("#modifyUserCode").val(data.usercode);
-                $("#modifyPassword").val(data.password);
-            },
-            error: function (data) {
-                swal.fire({
-                    icon: 'error',
-                    text: '请求失败!',
-                    confirmButtonText: 'ok',
-                    width: '475px',
-                    confirmButtonColor: '#7cd1f9',
-                })
-            }
-        })
-    }
-
 </script>
 
 </body>

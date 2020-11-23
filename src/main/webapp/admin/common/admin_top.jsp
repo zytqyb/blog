@@ -4,15 +4,15 @@
     <ul class="main-nav">
         <li>
             <a href="javascript:;">
-                <i class="glyphicon glyphicon-th-list"></i>
+                <i class="fa fa-bars"></i>
             </a>
         </li>
     </ul>
 
     <ul class="main-nav">
         <li>
-            <a href="../index.jsp">
-                <i class="glyphicon glyphicon-plane"></i>
+            <a href="${pageContext.request.contextPath}/index.jsp">
+                <i class="fa fa-paper-plane"></i>
                 博客首页
             </a>
         </li>

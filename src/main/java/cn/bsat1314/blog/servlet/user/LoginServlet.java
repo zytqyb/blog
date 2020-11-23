@@ -29,7 +29,8 @@ public class LoginServlet extends HttpServlet {
 
         if (user != null) {
             HttpSession session = req.getSession();
-            if (user.getUsercode().equals(usercode) && user.getPassword().equals(password)) { // 查有此人可以登录
+            // 查有此人可以登录
+            if (user.getUsercode().equals(usercode) && user.getPassword().equals(password)) {
                 // 将用户的信息换号Session中;
                 session.setAttribute(Constants.USER_SESSION, user);
                     // 登录成功后跳转重定向到后台页面
