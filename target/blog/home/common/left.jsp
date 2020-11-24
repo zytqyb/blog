@@ -92,9 +92,45 @@
                             <span class="glyphicon glyphicon-th-large"></span>
                             <span>分类</span>
                             <i class="glyphicon glyphicon-menu-right"></i>
+                        </a>
+                        <ul class="secondary-menu">
+                            <li>
+                                <a href="javascript:;">java教程</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">js教程</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">css教程</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">html教程</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">node.js教程</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Mongodb教程</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">javaweb教程</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">123基础</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">12312412</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="ym">
+                        <a href="#">
+                            <span class="glyphicon glyphicon-file"></span>
+                            <span>页面</span>
+                            <i class="glyphicon glyphicon-menu-right"></i>
                             <i style="display: none" class="glyphicon glyphicon-menu-down"></i>
                         </a>
-                        <ul style="display: none" class="secondary-menu">
+                        <ul class="secondary-menu">
                             <li>
                                 <a href="javascript:;">java教程</a>
                             </li>
@@ -126,14 +162,6 @@
                     </li>
                     <li>
                         <a href="#">
-                            <span class="glyphicon glyphicon-file"></span>
-                            <span>页面</span>
-                            <i class="glyphicon glyphicon-menu-right"></i>
-                            <i style="display: none" class="glyphicon glyphicon-menu-down"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
                             <span class="glyphicon glyphicon-user"></span>
                             <span>友链</span>
                             <i class="glyphicon glyphicon-menu-right"></i>
@@ -141,6 +169,7 @@
                         </a>
                     </li>
                 </ul>
+
             </nav>
         </div>
         <!-- 底部菜单 -->

@@ -1,4 +1,12 @@
-$(function () {
+
+    /* 实现登录框的弹出和隐藏 */
+
+    $("#sign").click(function(e) {
+        $(".login-top").fadeToggle();
+    });
+
+    // 点击空白消失
+    
     var error = $("#info").html();
     if (error != null && error.length > 0) {
         $.growl.warning({
@@ -26,4 +34,3 @@ $(function () {
         }
     })
 
-})
