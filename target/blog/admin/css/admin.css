@@ -228,6 +228,7 @@ a:focus {
 .container-fluid .wai {
     width: 100%;
     display: flex;
+    margin-top: 20px;
 }
 
 .container-fluid .wai .panel {
