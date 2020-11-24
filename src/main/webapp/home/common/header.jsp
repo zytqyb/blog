@@ -1,9 +1,10 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- 头部 -->
 <header id="header" class="header-top navbar-fixed-top container">
     <!-- 首页logo -->
     <div class="header-logo">
-        <a href="index.jsp">
+        <a href="${pageContext.request.contextPath}/index.jsp">
             <i class="glyphicon glyphicon-home" aria-hidden="true"></i>
             <span>邱同学的小破站</span>
         </a>
@@ -14,7 +15,7 @@
     <div class="top-nav">
 
         <!-- 搜索框 -->
-        <form class="top-form" action="javascript:;">
+        <form class="top-form" action="javascript:">
             <div class="top-ss">
                 <input id="ssk" type="search" placeholder="输入关键词搜索...">
                 <i class="glyphicon glyphicon-search"></i>
@@ -25,7 +26,7 @@
         <ul>
             <!-- 登录按钮 -->
             <li>
-                <a id="sign" href="javascript:;" class="dropdown-toggle">
+                <a id="sign" href="javascript:" class="dropdown-toggle">
                     <i class="glyphicon glyphicon-user"></i>
                     <span class="caret"></span>
                 </a>

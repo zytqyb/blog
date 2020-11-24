@@ -1,8 +1,12 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>小破站-首页</title>
     <%-- 导入css --%>
     <jsp:include page="home/common/css.jsp"/>
 
@@ -384,8 +388,11 @@
         <!-- 右侧导航栏结束 -->
     </main>
 </div>
-<script src="plugins/jquery_growl/jquery.growl.js"></script>
-<script src="./home/js/index.js"></script>
+<script src="${pageContext.request.contextPath}/plugins/jquery/jquery.js"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="${pageContext.request.contextPath}/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/plugins/jquery_growl/jquery.growl.js"></script>
+<script src="${pageContext.request.contextPath}/home/js/index.js"></script>
 <script src="${pageContext.request.contextPath}/home/js/login.js"></script>
 </body>
 
