@@ -116,9 +116,9 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-default" data-dismiss="modal">
-                                                        取消
+
                                                     </button>
-                                                    <button type="button" class="btn btn-primary" id="addUserBtn">添加
+                                                    <button type="button" class="btn btn-primary" id="addUserBtn" onclick="adduser()">添加
                                                     </button>
                                                 </div>
                                             </div>

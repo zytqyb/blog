@@ -1,4 +1,4 @@
-let addUserName = $("#addUserName");
+var addUserName = $("#addUserName");
 addUserName.blur(function () {
     if (addUserName.val().length < 2 || addUserName.val().length > 20) {
         validateTip(addUserName.prev(), {
@@ -11,7 +11,7 @@ addUserName.blur(function () {
 })
 
 // 验证账号是否重复以及是否符合规范
-let addUserCode = $("#addUserCode");
+var addUserCode = $("#addUserCode");
 addUserCode.focus(function () {
     validateTip(addUserCode.prev(), {"color": "#666666"}, "* 登录账号长度必须是大于等于6小于20", false);
 }).blur(function () {
@@ -50,8 +50,8 @@ addUserCode.focus(function () {
 });
 
 // 验证密码是否符合规范
-let addPassword = $("#addPassword");
-let newAddPassword = $("#newAddPassword");
+var addPassword = $("#addPassword");
+var newAddPassword = $("#newAddPassword");
 addPassword.focus(function () {
     validateTip(addPassword.prev(), {"color": "#666666"}, "* 密码长度必须是大于等于6小于20", false);
 }).blur(function () {
@@ -63,7 +63,7 @@ addPassword.focus(function () {
 });
 // 验证二次密码是否和第一次密码相同
 newAddPassword.blur(function () {
-    if (newAddPassword.val() != null && newAddPassword.val() === addPassword.val()) {
+    if (newAddPassword.val() != "" && newAddPassword.val() === addPassword.val()) {
         validateTip(newAddPassword.prev(), {"color": "green"}, imgYes + "再次输入登录密码正确", true);
     } else {
         validateTip(newAddPassword.prev(), {
@@ -73,13 +73,16 @@ newAddPassword.blur(function () {
     }
 });
 
-let addUserBtn = $("#addUserBtn");
-addUserBtn.click(function () {
+function adduser() {
     addUserName.blur();
     addUserCode.blur();
     addPassword.blur();
     newAddPassword.blur();
-    if (addUserName.attr("status") && addUserCode.attr("status") && addPassword.attr("status") && newAddPassword.attr("status")) {
+    if (addUserName.attr("status") == "true" && addUserCode.attr("status") == "true" && addPassword.attr("status") == "true" && newAddPassword.attr("status") == "true") {
+        console.log(addUserName.attr("status"));
+        console.log(addUserCode.attr("status"))
+        console.log(addPassword.attr("status"))
+        console.log(newAddPassword.attr("status"))
         Swal.fire({
             title: '确定添加吗？',
             icon: 'warning',
@@ -97,8 +100,7 @@ addUserBtn.click(function () {
             }
         })
     }
-
-});
+}
 
 function deleteUser() {
     let flag = false;
