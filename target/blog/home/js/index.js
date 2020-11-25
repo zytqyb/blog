@@ -30,15 +30,14 @@ $("#right-qh li").click(function () {
 // 切换
 
 
-$("#fl a").click(function (e) {
-    toggle($("#fl ul"), $("#fl a i"));
-    e.stopPropagation();
-});
+// $("#fl a").click(function (e) {
+//     toggle($("#fl ul"), $("#fl a i"));
+// });
 
-$("#ym a").click(function (e) {
-    toggle($("#ym ul"), $("#ym a i"));
-    e.stopPropagation();
-});
+
+
+
+
 
 // 切换组成二级菜单是否显示
 function toggle(nav, icon) {

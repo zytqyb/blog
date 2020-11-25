@@ -8,7 +8,6 @@ import cn.bsat1314.blog.util.Constants;
 import cn.bsat1314.blog.util.PageSupport;
 import com.alibaba.fastjson.JSONArray;
 import com.mysql.jdbc.StringUtils;
-import org.junit.jupiter.api.Test;
 
 
 import javax.servlet.ServletException;
@@ -18,7 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.*;
-
 // 实现Servlet复用
 public class UserServlet extends HttpServlet {
     @Override

@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 // 处理登录请求
 public class LoginServlet extends HttpServlet {
@@ -29,10 +31,14 @@ public class LoginServlet extends HttpServlet {
 
         if (user != null) {
             HttpSession session = req.getSession();
+            SimpleDateFormat sdf = new SimpleDateFormat();// 格式化时间
+            sdf.applyPattern("yyyy-MM-dd HH:mm:ss");// a为am/pm的标记
+            Date time = new Date();// 获取当前时间
             // 查有此人可以登录
             if (user.getUsercode().equals(usercode) && user.getPassword().equals(password)) {
                 // 将用户的信息换号Session中;
                 session.setAttribute(Constants.USER_SESSION, user);
+                session.setAttribute("time", sdf.format(time));
                     // 登录成功后跳转重定向到后台页面
                     req.getSession().setAttribute("success", 0);
                 // 把登录的昵称响应添加给session

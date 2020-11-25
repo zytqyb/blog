@@ -414,8 +414,8 @@ div {
   padding-left: 50px !important;
 }
 
-.left-rn ul li:hover,
-.secondary-menu li:hover {
+.left-rn ul li a:hover,
+.secondary-menu li a:hover {
   background-color: #ececec;
 }
 

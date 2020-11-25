@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<aside class="aside" style="min-height: 880px">
+<aside class="aside">
     <div class="logo-top">
         <img src="img/logo.png" alt="logo">
         <span>My blog</span>

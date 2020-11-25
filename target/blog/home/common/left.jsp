@@ -88,7 +88,7 @@
                     </li>
 
                     <li id="fl">
-                        <a href="javascript:;">
+                        <a href="javascript:;" onclick="toggle($('#fl ul'), $('#fl a i'))">
                             <span class="glyphicon glyphicon-th-large"></span>
                             <span>分类</span>
                             <i class="glyphicon glyphicon-menu-right"></i>
@@ -124,7 +124,7 @@
                         </ul>
                     </li>
                     <li id="ym">
-                        <a href="#">
+                        <a href="javascript:;" onclick="toggle($('#ym ul'), $('#ym a i'))">
                             <span class="glyphicon glyphicon-file"></span>
                             <span>页面</span>
                             <i class="glyphicon glyphicon-menu-right"></i>

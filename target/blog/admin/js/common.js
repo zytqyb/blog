@@ -13,3 +13,5 @@ function validateTip(element,css,tipString,status){
     element.html(tipString);
     element.next().attr("status",status);
 }
+
+

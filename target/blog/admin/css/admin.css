@@ -25,6 +25,7 @@ a:focus {
     color: rgb(194, 199, 208);
 }
 
+
 .container-fluid {
     width: 100%;
     padding: 0 !important;
@@ -34,6 +35,8 @@ a:focus {
 .aside {
     background: #343a40;
     width: 250px;
+    height: 100%;
+    overflow-y: auto;
     position: fixed;
     top: 0;
     left: 0;
@@ -41,6 +44,10 @@ a:focus {
     padding: 0 8px;
     z-index: 10;
     box-shadow: 0 14px 28px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .22);
+}
+
+.aside::-webkit-scrollbar {
+    display: none;
 }
 
 .kb {
@@ -119,7 +126,6 @@ a:focus {
     margin-right: 10px;
     text-align: center;
 }
-
 
 
 .user-tx img {
@@ -281,7 +287,6 @@ a:focus {
 }
 
 
-
 .modify p, label {
     display: inline;
 }
@@ -300,6 +305,7 @@ a:focus {
     text-align: center;
 
 }
+
 /*设置后台用户管理界面表格的css*/
 
 .pager li a {
@@ -311,26 +317,25 @@ th {
 }
 
 
-
 .btn-success {
     color: #fff;
     background-color: #28a745;
     border-color: #28a745;
-    box-shadow: 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .075);
 }
 
 .btn-danger {
     color: #fff;
     background-color: #dc3545;
     border-color: #dc3545;
-    box-shadow: 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .075);
 }
 
 .btn-info {
     color: #fff;
     background-color: #17a2b8;
     border-color: #17a2b8;
-    box-shadow: 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .075);
 }
 
 /* 用户管理界面增加和删除按钮的css样式 */
@@ -341,6 +346,55 @@ th {
     align-items: center;
     margin-right: 20px;
 }
+
+
+/* 用户信息弹出框 */
+.usertable {
+    top: 40px;
+    right: 10px;
+    min-width: 280px;
+    width: 300px;
+    padding: 0;
+    overflow: hidden;
+    transition: all .2s ease-in-out 0s;
+}
+
+.usertable a {
+    display: flex;
+    width: 100% !important;
+    padding: 8px 16px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.usertable a i {
+    width: 13px !important;
+    text-align: center;
+}
+
+.usertable a span:nth-child(1) {
+    color: #000;
+    font-size: 16px;
+}
+
+.usertable a span:nth-child(2) {
+    color: rgb(108, 117, 125);
+    font-size: 14px;
+}
+
+.usertable a:hover {
+    background-color: #f8f9fa;
+}
+
+.usertable a:focus {
+    background-color: #007bff;
+}
+
+.usertable a i {
+    margin-right: 5px;
+}
+
+
 
 
 
