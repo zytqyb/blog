@@ -13,9 +13,12 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-// 处理登录请求
-public class LoginServlet extends HttpServlet {
 
+/**
+ * @author bsat
+ */
+public class LoginServlet extends HttpServlet {
+    // 处理登录请求
     // Servlet: 控制层,调用业务层代码
 
     @Override
@@ -31,9 +34,12 @@ public class LoginServlet extends HttpServlet {
 
         if (user != null) {
             HttpSession session = req.getSession();
-            SimpleDateFormat sdf = new SimpleDateFormat();// 格式化时间
-            sdf.applyPattern("yyyy-MM-dd HH:mm:ss");// a为am/pm的标记
-            Date time = new Date();// 获取当前时间
+            // 格式化时间
+            SimpleDateFormat sdf = new SimpleDateFormat();
+            // a为am/pm的标记
+            sdf.applyPattern("yyyy-MM-dd HH:mm:ss");
+            // 获取当前时间
+            Date time = new Date();
             // 查有此人可以登录
             if (user.getUsercode().equals(usercode) && user.getPassword().equals(password)) {
                 // 将用户的信息换号Session中;

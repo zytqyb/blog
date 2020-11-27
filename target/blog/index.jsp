@@ -90,7 +90,7 @@
                 <nav aria-label="Page navigation">
                     <ul class="pagination">
                         <li class="disabled">
-                            <a href="javascript:;" aria-label="Previous">
+                            <a href="#" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
@@ -117,10 +117,10 @@
         <aside class="nva-right">
             <div class="idebar-top">
                 <ul id="right-qh">
-                    <li class="qh"><a href="javascript:;"><span class="glyphicon glyphicon-thumbs-up"></span></a>
+                    <li class="qh"><a href="javascript:"><span class="glyphicon glyphicon-thumbs-up"></span></a>
                     </li>
-                    <li><a href="javascript:;"><span class="glyphicon glyphicon-comment"></span></a></li>
-                    <li><a href="javascript:;"><span class="glyphicon glyphicon-gift"></span></a></li>
+                    <li><a href="javascript:"><span class="glyphicon glyphicon-comment"></span></a></li>
+                    <li><a href="javascript:"><span class="glyphicon glyphicon-gift"></span></a></li>
                 </ul>
             </div>
 
