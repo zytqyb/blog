@@ -8,7 +8,7 @@ import java.util.List;
 public interface BlogService {
 
     // 博客文章发布方法
-    public boolean addArticle(String title, String content, String photo, String category);
+    public boolean addArticle(String title, String content, String photo, String category, String content100, String username);
 
     // 根据文章名或者分类查询文章总数
     public int getBlogCount(String title, Integer categoryId);

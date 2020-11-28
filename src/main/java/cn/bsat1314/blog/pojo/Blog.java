@@ -6,7 +6,7 @@ import java.sql.Timestamp;
 public class Blog {
 
     private Integer id; //文章id
-    private String user; // 文章作者
+    private String username; // 文章作者
     private String title; //文章标题
     private String content; // 文章内容
     private String content100; // 摘要
@@ -18,9 +18,9 @@ public class Blog {
     public Blog() {
     }
 
-    public Blog(Integer id, String user, String title, String content, String content100, String photo, Integer category, Timestamp uploadTime, Timestamp modifyDate) {
+    public Blog(Integer id, String username, String title, String content, String content100, String photo, Integer category, Timestamp uploadTime, Timestamp modifyDate) {
         this.id = id;
-        this.user = user;
+        this.username = username;
         this.title = title;
         this.content = content;
         this.content100 = content100;
@@ -38,12 +38,12 @@ public class Blog {
         this.id = id;
     }
 
-    public String getUser() {
-        return user;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getTitle() {
@@ -106,7 +106,7 @@ public class Blog {
     public String toString() {
         return "Blog{" +
                 "id=" + id +
-                ", user='" + user + '\'' +
+                ", username='" + username + '\'' +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", content100='" + content100 + '\'' +

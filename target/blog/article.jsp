@@ -27,14 +27,23 @@
             <!-- 内容区头部 -->
             <header class="main-top">
                 <h1>${blog.title}</h1>
-                <span>${blog.user} ${blog.uploadTime}</span>
+                <ul>
+                    <li><i class="fa fa-user"></i>${blog.username}</li>
+                    <li><i class="glyphicon glyphicon-time"></i>${blog.uploadTime}</li>
+                    <li><i class="glyphicon glyphicon-eye-open"></i>22次浏览</li>
+                </ul>
             </header>
             <!-- 主要内容区 -->
             <div class="center-part">
                 <ol class="breadcrumb">
-                    <li><a href="index.jsp">首页</a></li>
+                    <li><a href="index.jsp"><i class="glyphicon glyphicon-home" style="margin-right: 5px"></i>首页</a></li>
                     <li class="active">正文</li>
                 </ol>
+
+                <div class="post-img"
+                     style="background-image: url(${blog.photo})">
+                </div>
+
                 <!--首页输出文章-->
                 <div class="blog-post">
                     <div class="single-post panel" style="padding: 30px">
@@ -339,7 +348,7 @@
 <script src="${pageContext.request.contextPath}/plugins/editormd/lib/jquery.flowchart.min.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/editormd/editormd.js"></script>
 
-<script>
+<script type="text/javascript">
     editormd.markdownToHTML("test-editormd", {
         htmlDecode      : "style,script,iframe",
         emoji           : true,

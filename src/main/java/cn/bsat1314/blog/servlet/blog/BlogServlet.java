@@ -2,15 +2,13 @@ package cn.bsat1314.blog.servlet.blog;
 
 import cn.bsat1314.blog.pojo.Blog;
 import cn.bsat1314.blog.service.blog.BlogServiceImpl;
-import cn.bsat1314.blog.service.user.UsersServiceImpl;
-import cn.bsat1314.blog.util.PageSupport;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
+
 
 public class BlogServlet extends HttpServlet {
 
@@ -36,15 +34,26 @@ public class BlogServlet extends HttpServlet {
         String title = req.getParameter("title");
         String photo = req.getParameter("photo");
         String category = req.getParameter("category");
+        String content100 = req.getParameter("content100");
+        String username = req.getParameter("username");
         String content = req.getParameter("my-editormd-markdown-doc");
 
         if (title != null) {
             BlogServiceImpl blogService = new BlogServiceImpl();
-            boolean result = blogService.addArticle(title, content, photo, category);
+            boolean result = blogService.addArticle(title, content, photo, category, content100, username);
             if (result) {
-                System.out.println("添加成功");
+                try {
+                    req.getSession().setAttribute("result","添加成功");
+                    resp.sendRedirect("/admin/addarticle.jsp");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }else {
-                System.out.println("添加失败");
+                try {
+                    resp.sendRedirect("/admin/addarticle.jsp");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

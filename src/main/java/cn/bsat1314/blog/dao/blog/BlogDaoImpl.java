@@ -18,10 +18,10 @@ public class BlogDaoImpl implements BlogDao{
 
     // 添加一篇文章
     @Override
-    public int addBlog(String title, String content, String photo, String category) throws SQLException {
+    public int addBlog(String title, String content, String photo, String category, String content100, String username) throws SQLException {
         QueryRunner queryRunner = new QueryRunner(JdbcC3p0Utils.getDataSource());
-        String sql = "insert into `blog`(`title`, `content`, `photo`, `category` ) values (?, ?, ?, ?)";
-        Object[] params = {title, content, photo, category};
+        String sql = "insert into `blog`(`title`, `content`, `photo`, `category`, content100, username) values (?, ?, ?, ?, ?, ?)";
+        Object[] params = {title, content, photo, category, content100, username};
         return queryRunner.update(sql, params);
     }
 
@@ -68,7 +68,7 @@ public class BlogDaoImpl implements BlogDao{
         // 0->5 第一页  1 0 01234
         // 6->5 第二页  2 5 56789
         // 11->5 第三页
-        sql.append(" ORDER BY b.uploadTime LIMIT ?,?");
+        sql.append(" ORDER BY b.uploadTime desc LIMIT ?,?");
         currentPageNo = (currentPageNo - 1) * pageSize;
         list.add(currentPageNo);
         list.add(pageSize);

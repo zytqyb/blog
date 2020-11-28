@@ -107,13 +107,13 @@
                                 <a href="javascript:">html教程</a>
                             </li>
                             <li>
-                                <a href="javascript:;">node.js教程</a>
+                                <a href="javascript:">node.js教程</a>
                             </li>
                             <li>
-                                <a href="javascript:;">Mongodb教程</a>
+                                <a href="javascript:">Mongodb教程</a>
                             </li>
                             <li>
-                                <a href="javascript:;">javaweb教程</a>
+                                <a href="javascript:">javaweb教程</a>
                             </li>
                             <li>
                                 <a href="javascript:">123基础</a>
@@ -124,7 +124,7 @@
                         </ul>
                     </li>
                     <li id="ym">
-                        <a href="javascript:;" onclick="toggle($('#ym ul'), $('#ym a i'))">
+                        <a href="javascript:" onclick="toggle($('#ym ul'), $('#ym a i'))">
                             <span class="glyphicon glyphicon-file"></span>
                             <span>页面</span>
                             <i class="glyphicon glyphicon-menu-right"></i>
@@ -135,7 +135,7 @@
                                 <a href="javascript:">java教程</a>
                             </li>
                             <li>
-                                <a href="javascript:;">js教程</a>
+                                <a href="javascript:">js教程</a>
                             </li>
                             <li>
                                 <a href="javascript:">css教程</a>
@@ -153,7 +153,7 @@
                                 <a href="javascript:">javaweb教程</a>
                             </li>
                             <li>
-                                <a href="javascript:;">123基础</a>
+                                <a href="javascript:">123基础</a>
                             </li>
                             <li>
                                 <a href="javascript:">12312412</a>

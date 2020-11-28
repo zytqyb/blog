@@ -19,10 +19,10 @@ public class BlogServiceImpl implements BlogService{
 
     // 实现文章添加功能
     @Override
-    public boolean addArticle(String title, String content, String photo, String category) {
+    public boolean addArticle(String title, String content, String photo, String category, String content100, String username) {
         boolean result = false;
         try {
-            int i = blogDao.addBlog(title, content, photo, category);
+            int i = blogDao.addBlog(title, content, photo, category, content100, username);
             if (i > 0) {
                 result = true;
             }

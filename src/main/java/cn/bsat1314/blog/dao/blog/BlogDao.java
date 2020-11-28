@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface BlogDao {
     // 添加一篇文章
-    public int addBlog(String title, String content, String photo, String category) throws SQLException;
+    public int addBlog(String title, String content, String photo, String category, String content100, String username) throws SQLException;
 
     // 根据文章名或者分类查询文章总数
     public int getBlogCount(String title, Integer categoryId) throws SQLException;
