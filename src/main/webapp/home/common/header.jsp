@@ -17,8 +17,8 @@
         <!-- 搜索框 -->
         <form class="top-form" action="javascript:">
             <div class="top-ss">
-                <input id="ssk" type="search" placeholder="输入关键词搜索...">
-                <i class="glyphicon glyphicon-search"></i>
+                <input id="ssk" name="title" type="search" placeholder="输入关键词搜索...">
+                <a href="index.jsp?title=${title}"><i class="glyphicon glyphicon-search"></i></a>
             </div>
         </form>
 

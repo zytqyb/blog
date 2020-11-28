@@ -14,7 +14,7 @@
 
 <body>
 
-<div class="container">
+<div class="container" style="height: 100%">
     <%-- 头部导航栏 --%>
     <jsp:include page="home/common/header.jsp"/>
     <%-- 头部导航栏结束 --%>
@@ -23,7 +23,6 @@
     <%-- 左侧导航条 --%>
     <!-- 主体部分 -->
     <main id="main" class="main-zhong row">
-        <div class="kb"></div>
         <div class="main-box">
             <!-- 内容区头部 -->
             <header class="main-top">
@@ -32,57 +31,34 @@
             </header>
             <!-- 主要内容区 -->
             <div class="center-part">
-                <ol style="display: none;" class="breadcrumb">
-                    <li><a href="#">首页</a></li>
-                    <li><a href="#">Library</a></li>
-                    <li class="active">Data</li>
-                </ol>
+                <%--                <ol style="display: none;" class="breadcrumb">--%>
+                <%--                    <li><a href="#">首页</a></li>--%>
+                <%--                    <li><a href="#">Library</a></li>--%>
+                <%--                    <li class="active">Data</li>--%>
+                <%--                </ol>--%>
                 <!--首页输出文章-->
                 <div class="blog-post">
-                    <div class="single-post panel">
-                        <div class="index-post-img">
-                            <a href="#">
-                                <!-- 展示文章头图 -->
-                                <div class="post-img"
-                                     style="background-image: url(https://www.bsat1314.cn//blog_img20201018004530.jpg)">
+                    <c:forEach var="blogList" items="${blogList}">
+                        <div class="single-post panel" style="height: 451px">
+                            <div class="index-post-img">
+                                <a href="${pageContext.request.contextPath}/blog?method=getArticle&id=${blogList.id}">
+                                    <!-- 展示文章头图 -->
+                                    <div class="post-img"
+                                         style="background-image: url(${blogList.photo})">
+                                    </div>
 
-                                </div>
+                                    <div class="article-data" style="max-height: 200px">
+                                        <h2>${blogList.title}</h2>
+                                        <p>
+                                                ${blogList.content100}......
+                                        </p>
+                                        <div class="line"></div>
+                                    </div>
 
-                                <div class="article-data">
-                                    <h2>JavaScript教程</h2>
-                                    <p>这是小白的零基础JavaScript全栈教程。
-                                        JavaScript是世界上最流行的脚本语言，因为你在电脑、手机、平板上浏览的所有的网页，以及无数基于HTML5的手机App，交互逻辑都是由JavaScript驱动的。
-                                        简单地说，JavaScript是一种运行在浏览器中的解释型的编程语言。
-                                        那么问题来了，为什么我们要学JavaScript？尤其是当你已经掌握了某些其他编程语言如Java、C++的情况下。
-                                    </p>
-                                    <div class="line"></div>
-                                </div>
-
-                            </a>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="single-post panel">
-                        <div class="index-post-img">
-                            <a href="#">
-                                <!-- 展示文章头图 -->
-                                <div class="post-img"
-                                     style="background-image: url(https://www.bsat1314.cn//blog_img20201018004529.jpg)">
-
-                                </div>
-
-                                <div class="article-data">
-                                    <h2>JavaScript教程</h2>
-                                    <p>这是小白的零基础JavaScript全栈教程。
-                                        JavaScript是世界上最流行的脚本语言，因为你在电脑、手机、平板上浏览的所有的网页，以及无数基于HTML5的手机App，交互逻辑都是由JavaScript驱动的。
-                                        简单地说，JavaScript是一种运行在浏览器中的解释型的编程语言。
-                                        那么问题来了，为什么我们要学JavaScript？尤其是当你已经掌握了某些其他编程语言如Java、C++的情况下。
-                                    </p>
-                                    <div class="line"></div>
-                                </div>
-
-                            </a>
-                        </div>
-                    </div>
+                    </c:forEach>
                 </div>
 
 
@@ -94,11 +70,17 @@
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
+                        <%
+                            int totalPageCount = (int) request.getAttribute("totalPageCount");
+                            int currentPageNo = (int)request.getAttribute("currentPageNo");
+                            for (int i = 1; i <= totalPageCount; i++) {
+                        %>
+
+                        <li class="<%if (currentPageNo == i){%>active<%}%>">
+                        <%-- 跳转页数 --%>
+                        <a href="index.jsp?title=${title}&CategoryId=${queryCategoryId}&pageIndex=<%=i%>"><%=i%></a></li>
+                        <%}%>
+
                         <li>
                             <a href="#" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
@@ -107,11 +89,8 @@
                     </ul>
                 </nav>
                 <!-- 分页结束 -->
-
             </div>
-
             <!-- 主要内容区结束 -->
-
         </div>
         <!-- 右侧导航栏 -->
         <aside class="nva-right">
@@ -367,7 +346,7 @@
                 <h5>博客信息</h5>
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <span class="badge">14</span>
+                        <span class="badge">${totalCount}</span>
                         文章数目
                     </li>
                     <li class="list-group-item">

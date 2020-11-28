@@ -26,7 +26,7 @@
                         <span>导航</span>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="index.jsp">
                             <span class="glyphicon glyphicon-home"></span>
                             <span>首页</span>
                         </a>
@@ -88,23 +88,23 @@
                     </li>
 
                     <li id="fl">
-                        <a href="javascript:;" onclick="toggle($('#fl ul'), $('#fl a i'))">
+                        <a href="javascript:" onclick="toggle($('#fl ul'), $('#fl a i'))">
                             <span class="glyphicon glyphicon-th-large"></span>
                             <span>分类</span>
                             <i class="glyphicon glyphicon-menu-right"></i>
                         </a>
                         <ul class="secondary-menu">
                             <li>
-                                <a href="javascript:;">java教程</a>
+                                <a href="javascript:">java教程</a>
                             </li>
                             <li>
-                                <a href="javascript:;">js教程</a>
+                                <a href="javascript:">js教程</a>
                             </li>
                             <li>
-                                <a href="javascript:;">css教程</a>
+                                <a href="javascript:">css教程</a>
                             </li>
                             <li>
-                                <a href="javascript:;">html教程</a>
+                                <a href="javascript:">html教程</a>
                             </li>
                             <li>
                                 <a href="javascript:;">node.js教程</a>
@@ -116,10 +116,10 @@
                                 <a href="javascript:;">javaweb教程</a>
                             </li>
                             <li>
-                                <a href="javascript:;">123基础</a>
+                                <a href="javascript:">123基础</a>
                             </li>
                             <li>
-                                <a href="javascript:;">12312412</a>
+                                <a href="javascript:">12312412</a>
                             </li>
                         </ul>
                     </li>
@@ -132,31 +132,31 @@
                         </a>
                         <ul class="secondary-menu">
                             <li>
-                                <a href="javascript:;">java教程</a>
+                                <a href="javascript:">java教程</a>
                             </li>
                             <li>
                                 <a href="javascript:;">js教程</a>
                             </li>
                             <li>
-                                <a href="javascript:;">css教程</a>
+                                <a href="javascript:">css教程</a>
                             </li>
                             <li>
-                                <a href="javascript:;">html教程</a>
+                                <a href="javascript:">html教程</a>
                             </li>
                             <li>
-                                <a href="javascript:;">node.js教程</a>
+                                <a href="javascript:">node.js教程</a>
                             </li>
                             <li>
-                                <a href="javascript:;">Mongodb教程</a>
+                                <a href="javascript:">Mongodb教程</a>
                             </li>
                             <li>
-                                <a href="javascript:;">javaweb教程</a>
+                                <a href="javascript:">javaweb教程</a>
                             </li>
                             <li>
                                 <a href="javascript:;">123基础</a>
                             </li>
                             <li>
-                                <a href="javascript:;">12312412</a>
+                                <a href="javascript:">12312412</a>
                             </li>
                         </ul>
                     </li>

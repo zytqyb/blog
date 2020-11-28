@@ -52,12 +52,12 @@ public class LoginServlet extends HttpServlet {
                 resp.sendRedirect("/admin/admin.jsp");
             } else { // 查无此人, 无法登录
                 req.setAttribute("error", "用户名或者密码不正确");
-                req.getRequestDispatcher("/index.jsp").forward(req, resp);
+                req.getRequestDispatcher("/sy.jsp").forward(req, resp);
             }
         } else { // 查无此人, 无法登录
             // 请求转发回登录页面,并且提示用户名或者密码错误
             req.setAttribute("error", "用户名或者密码不正确");
-            req.getRequestDispatcher("/index.jsp").forward(req, resp);
+            req.getRequestDispatcher("/sy.jsp").forward(req, resp);
         }
     }
 

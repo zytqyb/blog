@@ -219,7 +219,6 @@
                                     </tr>
                                     <c:forEach var="userslist" items="${userList}">
                                         <tr>
-
                                             <td><input type="checkbox" name="blogId" value="${userslist.id}"></td>
                                             <td>${userslist.username}</td>
                                             <td>${userslist.usercode}</td>
