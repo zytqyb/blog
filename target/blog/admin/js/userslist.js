@@ -79,10 +79,6 @@ function adduser() {
     addPassword.blur();
     newAddPassword.blur();
     if (addUserName.attr("status") == "true" && addUserCode.attr("status") == "true" && addPassword.attr("status") == "true" && newAddPassword.attr("status") == "true") {
-        console.log(addUserName.attr("status"));
-        console.log(addUserCode.attr("status"))
-        console.log(addPassword.attr("status"))
-        console.log(newAddPassword.attr("status"))
         Swal.fire({
             title: '确定添加吗？',
             icon: 'warning',
@@ -172,7 +168,23 @@ function modifyUser() {
         modifyUsers(index);
         $('#modifyUser').modal();
         $("#modifyUserBtn").click(function () {
-            $("#modifyForm").submit();
+            if ($("#rolePassword").val() === $("#modifyPassword").val() && $("#rolePassword").val() != "") {
+                console.log(1)
+                if ($("#modifyPassword").val() === $("#newModifyPassword").val()) {
+                    $("#modifyForm").submit();
+                }else {
+                    validateTip($("#newModifyPassword").prev(), {
+                        "color": "red",
+                        "margin-bottom": "5px"
+                    }, imgNo + "俩次密码不一样,请重新输入", false)
+                }
+            }else {
+                console.log(2)
+                validateTip($("#modifyPassword").prev(), {
+                    "color": "red",
+                    "margin-bottom": "5px"
+                }, imgNo + "管理员密码错误,请重试", false)
+            }
         })
     }
 }
@@ -186,7 +198,6 @@ function modifyUsers(index) {
         success: function (data) {
             $("#modifyUserName").val(data.username);
             $("#modifyUserCode").val(data.usercode);
-            $("#modifyPassword").val(data.password);
         },
         error: function (data) {
             swal.fire({

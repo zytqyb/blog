@@ -28,20 +28,19 @@
                     <div class="panel panel-default" style="width: 100%">
                         <div class="panel-heading">发布文章</div>
                         <div class="panel-body">
-                            <form class="form-inline" method="post" style="min-height: 850px;">
+                            <form id="addArticle" class="form-inline" action="${pageContext.request.contextPath}/admin/blog" method="post" style="min-height: 850px;">
                                 <input name="method" value="addArticle" class="input-text" type="hidden">
                                 <div class="form-group">
                                     <input type="text" class="form-control col-sm-6" placeholder="请输入文章标题" name="title"
                                            style="width: 50%; height: 38px">
-                                    <input type="text" class="form-control col-sm-6" placeholder="文章标签可以为空" name="title"
+                                    <input type="text" class="form-control col-sm-6" placeholder="请填入文章头图url" name="photo"
                                            style="width: 50%; height: 38px">
-                                    <select name="blogCategoryId" id="blogCategoryId"
+                                    <select name="category" id="blogCategoryId"
                                             class="form-control wid100"
                                             style="margin-top: 5px; height:38px">
-                                        <option value="1">Mysql</option>
-                                        <option value="2">Java</option>
-                                        <option value="3">JavaScript</option>
-                                        <option value="4">杂谈</option>
+                                        <option value="Mysql">Mysql</option>
+                                        <option value="Java">Java</option>
+                                        <option value="JavaScript">JavaScript</option>
                                     </select>
                                     <%-- editor.md编辑器 --%>
 
@@ -49,10 +48,10 @@
                                         <textarea id="my-editormd-markdown-doc" name="my-editormd-markdown-doc" style="display:none;"></textarea>
                                     </div>
 
-
                                 </div>
-                            </form>
 
+                            </form>
+                            <button class="btn btn-success" style="margin-left: 1000px" onclick="$('#addArticle').submit()">添加</button>
                         </div>
                     </div>
                 </div>

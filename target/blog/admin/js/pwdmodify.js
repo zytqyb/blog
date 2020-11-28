@@ -51,9 +51,22 @@ $(function () {
         oldpassword.blur();
         newpassword.blur();
         if (oldpassword.attr("status") == "true" && newpassword.attr("status") == "true") {
-            if (confirm("确定要修改密码？")) {
-                $("#modify-password").submit();
-            }
+            Swal.fire({
+                title: '确定修改吗？',
+                icon: 'warning',
+                showCancelButton: true,
+                cancelButtonText: '取消',
+                text: "确定修改密码嘛?",
+                confirmButtonText: '确定',
+                width: '475px',
+                reverseButtons: true,
+                confirmButtonColor: '#e64942',
+                cancelButtonColor: '#efefef',
+            }).then((result) => {
+                if (result.value) {
+                    $("#modify-password").submit();
+                }
+            })
         }
 
     });

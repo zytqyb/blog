@@ -1,6 +1,7 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-<html>
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,10 +9,10 @@
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>小破站 | 登录</title>
     <jsp:include page="common/css.jsp"/>
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/css/login.css">
 </head>
 <body>
-<div class="container-fluid" style="height: 100%;">
+<div class="container-fluid" style="height: 937px;">
     <div class="login-card">
         <p style="text-align: center; padding: 20px; font-size: 16px">your personal blog , enjoy it</p>
         <form id="login-form" method="post" action="${pageContext.request.contextPath}/login">
@@ -47,15 +48,14 @@
 <script src="${pageContext.request.contextPath}/admin/dist/code.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/bootstrap/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/sweetalert2/dist/sweetalert2.min.js"></script>
-<script defer id="ribbon" src="dist/canvas-ribbon.js" size="150" alpha="0.6" zIndex="-1" mobile="true"
+<script defer id="ribbon" src="${pageContext.request.contextPath}/admin/dist/canvas-ribbon.js" size="150" alpha="0.6" zIndex="-1" mobile="true"
         data-click="true">
 </script>
 <script type="text/javascript" color="0,0,205" opacity='0.7' zIndex="-1" count="99" mobile="true"
-        src="dist/canvas-nest.js">
+        src="${pageContext.request.contextPath}/admin/dist/canvas-nest.js">
 </script>
-<script id="ribbon_piao" mobile="true" src="dist/ribbon.js"></script>
+<script id="ribbon_piao" mobile="true" src="${pageContext.request.contextPath}/admin/dist/ribbon.js"></script>
 <script>
-
     $(function() {
         code_draw();
         // 点击后刷新验证码

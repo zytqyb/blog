@@ -12,7 +12,7 @@ public interface UsersDao {
     public User getLoginUser(String usercode) throws SQLException;
 
     // 添加用户
-    public int addUser(String username, String usercode, String password,String role, Date creationDate, Date modifyDate) throws SQLException;
+    public int addUser(String username, String usercode, String password,String role) throws SQLException;
 
     // 修改当前用户密码
     public int updatepwd(int id, String password) throws SQLException;
@@ -30,6 +30,6 @@ public interface UsersDao {
     public User getModifyUser(int id) throws SQLException;
 
     // 通过前台传入的数据修改用户信息
-    public int modifyUser(String usercode, String username, String password, int role, Date modifyDate) throws SQLException;
+    public int modifyUser(String usercode, String username, int role) throws SQLException;
 
 }

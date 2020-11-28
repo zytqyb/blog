@@ -163,18 +163,18 @@
                                                                    placeholder="请输入用户昵称" value="">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="modifyPassword">登录密码</label>
+                                                            <label for="modifyPassword">管理员密码</label>
                                                             <p></p>
                                                             <input type="password" class="form-control wid100"
                                                                    id="modifyPassword" name="modifyPassword"
-                                                                   placeholder="请输入登录密码" value="">
+                                                                   placeholder="请输入管理员密码" value="">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="newModifyPassword">再次输入登录密码</label>
+                                                            <label for="newModifyPassword">管理员密码</label>
                                                             <p></p>
                                                             <input type="password" class="form-control wid100"
                                                                    id="newModifyPassword" name="newModifyPassword"
-                                                                   placeholder="请输入登录密码">
+                                                                   placeholder="再次输入管理员密码">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="addRole">用户角色</label>
@@ -264,6 +264,7 @@
         </section>
     </main>
 </div>
+<input type="hidden" id="rolePassword" value="${userSession.password}">
 <!-- 加载 jquery-->
 <script src="${pageContext.request.contextPath}/plugins/jquery/jquery.js"></script>
 <!-- 加载 Bootstrap-->

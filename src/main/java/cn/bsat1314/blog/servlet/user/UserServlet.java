@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.*;
+
 // 实现Servlet复用
 public class UserServlet extends HttpServlet {
     @Override
@@ -60,19 +61,19 @@ public class UserServlet extends HttpServlet {
             UsersServiceImpl usersService = new UsersServiceImpl();
             flag = usersService.updatepwd(((User) o).getId(), newpassword);
             if (flag) {
-                req.setAttribute("message", "修改密码成功, 请退出使用新密码登录");
+                req.setAttribute("message", "修改密码成功");
                 // 密码修改成功删除Session
                 req.getSession().removeAttribute(Constants.USER_SESSION);
+                try {
+                    req.getRequestDispatcher("modify.jsp").forward(req, resp);
+                } catch (ServletException | IOException e) {
+                    e.printStackTrace();
+                }
             } else {
-                req.setAttribute("message", "修改密码失败,请重试");
+                req.setAttribute("rs", "修改密码失败,请重试");
             }
         } else {
-            req.setAttribute("message", "修改密码失败,请重试");
-        }
-        try {
-            req.getRequestDispatcher("modify.jsp").forward(req, resp);
-        } catch (ServletException | IOException e) {
-            e.printStackTrace();
+            req.setAttribute("rs", "修改密码失败,请重试");
         }
     }
 
@@ -170,9 +171,7 @@ public class UserServlet extends HttpServlet {
         // 返回前端
         try {
             req.getRequestDispatcher("userlist.jsp").forward(req, resp);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
     }
@@ -205,7 +204,7 @@ public class UserServlet extends HttpServlet {
             Map<String, String> resultMap = new HashMap<String, String>();
             if (user == null) {
                 resultMap.put("result", "yes");
-            }else {
+            } else {
                 resultMap.put("result", "no");
             }
 
@@ -231,11 +230,10 @@ public class UserServlet extends HttpServlet {
             String addPassword = req.getParameter("addPassword");
             String addRole = req.getParameter("addRole");
             UsersServiceImpl usersService = new UsersServiceImpl();
-            java.sql.Date time= new java.sql.Date(new Date().getTime());
-            boolean result = usersService.addUser(addUserName, addUserCode, addPassword, addRole, time, null);
+            boolean result = usersService.addUser(addUserName, addUserCode, addPassword, addRole);
             if (result) {
                 try {
-                    req.getSession().setAttribute("addResult","true");
+                    req.getSession().setAttribute("addResult", "true");
                     resp.sendRedirect("/admin/user?method=query");
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -266,7 +264,7 @@ public class UserServlet extends HttpServlet {
                     e.printStackTrace();
                 }
             }
-        }else {
+        } else {
             System.out.println("没有传入id");
         }
     }
@@ -274,26 +272,23 @@ public class UserServlet extends HttpServlet {
     // 修改用户信息
     public void modifyUser(HttpServletRequest req, HttpServletResponse resp) {
         String modifyUserCode = req.getParameter("modifyUserCode");
-        System.out.println(modifyUserCode);
         String modifyUserName = req.getParameter("modifyUserName");
-        String modifyPassword = req.getParameter("modifyPassword");
         String modifyRole = req.getParameter("modifyRole");
-        // 获取修改用户的系统时间
-        java.sql.Date modifyDate= new java.sql.Date(new Date().getTime());
         if (modifyUserCode != null) {
             UsersServiceImpl usersService = new UsersServiceImpl();
-            boolean b = usersService.updateUser(modifyUserCode, modifyUserName, modifyPassword, Integer.parseInt(modifyRole), modifyDate);
+            boolean b = usersService.updateUser(modifyUserCode, modifyUserName, Integer.parseInt(modifyRole));
             System.out.println(b);
             if (b) {
                 try {
-                    req.getSession().setAttribute("modifyResult","true");
+                    req.getSession().setAttribute("modifyResult", "true");
                     resp.sendRedirect("/admin/user?method=query");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
             System.out.println("修改成功");
-        }System.out.println("修改失败");
+        }
+        System.out.println("修改失败");
     }
 
 }

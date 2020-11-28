@@ -29,10 +29,10 @@ public class UsersServiceImpl implements UsersService{
 
     // 实现用户注册
     @Override
-    public boolean addUser(String username, String usercode, String password, String role, Date creationDate, Date modifyDate) {
+    public boolean addUser(String username, String usercode, String password, String role) {
         boolean result = false;
         try {
-            int i = usersDao.addUser(username, usercode, password, role, creationDate, modifyDate);
+            int i = usersDao.addUser(username, usercode, password, role);
             if (i > 0) {
                 result = true;
             }
@@ -114,10 +114,10 @@ public class UsersServiceImpl implements UsersService{
     // 通过前台传入的数据修改用户信息
 
     @Override
-    public boolean updateUser(String usercode, String username, String password, int role, Date modifyDate) {
+    public boolean updateUser(String usercode, String username, int role) {
         boolean result = false;
         try {
-            if (usersDao.modifyUser(usercode, username, password, role, modifyDate) > 0) {
+            if (usersDao.modifyUser(usercode, username, role) > 0) {
                 result = true;
             }
         } catch (SQLException throwables) {

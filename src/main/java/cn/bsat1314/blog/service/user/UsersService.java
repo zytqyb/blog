@@ -13,7 +13,7 @@ public interface UsersService {
     public User login(String usercode);
 
     // 添加用户
-    public boolean addUser(String username, String usercode, String password, String role, Date creationDate, Date modifyDate);
+    public boolean addUser(String username, String usercode, String password, String role);
 
     // 修改当前用户密码
     public boolean updatepwd(int id, String password);
@@ -31,6 +31,6 @@ public interface UsersService {
     public User getModifyUser(int id);
 
     // 通过前台传入的数据修改用户信息
-    public boolean updateUser(String usercode, String username, String password, int role, Date modifyDate);
+    public boolean updateUser(String usercode, String username, int role);
 
 }

@@ -26,10 +26,10 @@ public class UsersDaoImpl implements UsersDao {
 
     // 注册功能
     @Override
-    public int addUser(String username, String usercode, String password, String role,  Date creationDate, Date modifyDate) throws SQLException {
+    public int addUser(String username, String usercode, String password, String role) throws SQLException {
         QueryRunner queryRunner = new QueryRunner(JdbcC3p0Utils.getDataSource());
-        String sql = "insert into users(`username`, `usercode`, `password`, `role`, `creationDate`, `modifyDate`) values(?,?,?,?,?,?)";
-        Object[] params = {username, usercode, password, role, creationDate, modifyDate};
+        String sql = "insert into users(`username`, `usercode`, `password`, `role`, `creationDate`, `modifyDate`) values(?,?,?,?)";
+        Object[] params = {username, usercode, password, role};
         return queryRunner.update(sql, params);
     }
 
@@ -113,10 +113,10 @@ public class UsersDaoImpl implements UsersDao {
 
     // 通过传入的数据对用户信息进行修改
     @Override
-    public int modifyUser(String usercode, String username, String password, int role, Date modifyDate) throws SQLException {
+    public int modifyUser(String usercode, String username, int role) throws SQLException {
         QueryRunner queryRunner = new QueryRunner(JdbcC3p0Utils.getDataSource());
-        Object[] params = {username, password, role, modifyDate,usercode };
-        String sql = "UPDATE users SET `username` = ?, `password` = ?, `role` = ?, `modifyDate` = ? where `usercode` = ?";
+        Object[] params = {username, role, usercode };
+        String sql = "UPDATE users SET `username` = ?, `role` = ? where `usercode` = ?";
         return queryRunner.update(sql, params);
     }
 
