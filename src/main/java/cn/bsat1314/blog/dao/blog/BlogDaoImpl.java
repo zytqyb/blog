@@ -8,6 +8,7 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
+import org.junit.Test;
 
 
 import java.sql.SQLException;
@@ -42,10 +43,10 @@ public class BlogDaoImpl implements BlogDao{
             sql.append(" and c.id = ?");
             list.add(categoryId);// 数组下标1
         }
-        System.out.println("BlogDaoImpl-> getBlogCount:" + sql.toString()); // 输出最后完整的sql语句
         Number count = queryRunner.query(sql.toString(), new ScalarHandler<>("count"), list.toArray());
         return count.intValue();
     }
+
 
     // 通过条件获取文章列表
     @Override

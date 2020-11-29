@@ -5,6 +5,7 @@ import cn.bsat1314.blog.dao.blog.BlogDaoImpl;
 import cn.bsat1314.blog.dao.role.RoleDao;
 import cn.bsat1314.blog.dao.role.RoleDaoImpl;
 import cn.bsat1314.blog.pojo.Blog;
+import org.junit.Test;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -44,6 +45,7 @@ public class BlogServiceImpl implements BlogService{
         }
         return blogCount;
     }
+
 
     // 通过条件获取文章列表
     @Override

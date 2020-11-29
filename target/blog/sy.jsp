@@ -13,7 +13,6 @@
 </head>
 
 <body>
-
 <div class="container" style="height: 100%">
     <%-- 头部导航栏 --%>
     <jsp:include page="home/common/header.jsp"/>
@@ -65,8 +64,11 @@
                 <!-- 分页 -->
                 <nav aria-label="Page navigation">
                     <ul class="pagination">
-                        <li class="disabled">
-                            <a href="#" aria-label="Previous">
+                        <%-- 上一页 --%>
+                        <li id="previous" class="<c:if test="${currentPageNo <=1}">
+                        disabled
+                        </c:if>">
+                            <a href="index.jsp?title=${title}&CategoryId=${queryCategoryId}&pageIndex=${currentPageNo-1}" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
@@ -81,8 +83,10 @@
                         <a href="index.jsp?title=${title}&CategoryId=${queryCategoryId}&pageIndex=<%=i%>"><%=i%></a></li>
                         <%}%>
 
-                        <li>
-                            <a href="#" aria-label="Next">
+                        <li id="next" class="<c:if test="${currentPageNo >= totalPageCount}">
+                            disabled
+                            </c:if>">
+                            <a href="index.jsp?title=${title}&CategoryId=${queryCategoryId}&pageIndex=${currentPageNo+1}" >
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
@@ -367,6 +371,7 @@
         <!-- 右侧导航栏结束 -->
     </main>
 </div>
+
 <script src="${pageContext.request.contextPath}/plugins/jquery/jquery.js"></script>
 <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
 <script src="${pageContext.request.contextPath}/plugins/bootstrap/js/bootstrap.min.js"></script>

@@ -27,6 +27,30 @@ $("#right-qh li").click(function () {
     $(tabContent).find(".wz-pane").eq($(this).index()).fadeIn(500);
 });
 
+function flip(rs) {
+    if (rs.is(".disabled")) {
+        rs.click(function (e) {
+            e.preventDefault();
+        })
+    }
+}
+flip($("#previous"));
+flip($("#next"));
+
+$(window).scroll(function () {
+    if ($(this).scrollTop() > 300) {
+        $(".back-to-top").css("top", "-220px");
+    }else {
+        $(".back-to-top").css("top", "-900px");
+    }
+})
+
+$(".back-to-top").click(function () {
+    if ($(window).scrollTop() > 0) {
+        $("html,body").stop().animate({ scrollTop: 0 }, 600);
+    }
+})
+
 // 切换
 
 

@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- 头部 -->
+<div class="back-to-top" style="background: url(/home/img/scroll.png);"></div>
 <header id="header" class="header-top navbar-fixed-top container">
     <!-- 首页logo -->
     <div class="header-logo">
@@ -17,8 +18,8 @@
         <!-- 搜索框 -->
         <form class="top-form" action="javascript:">
             <div class="top-ss">
-                <input id="ssk" name="title" type="search" placeholder="输入关键词搜索...">
-                <a href="index.jsp?title=${title}"><i class="glyphicon glyphicon-search"></i></a>
+                <input class="form-control" id="ssk" name="title" type="search" required placeholder="输入关键词搜索...">
+                <button type="submit" style="padding: 0;outline-offset:-6px; margin-left: 1px" class="transparent btn btn-sm"><i class="glyphicon glyphicon-search"></i></button>
             </div>
         </form>
 
