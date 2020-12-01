@@ -26,10 +26,10 @@ public class UsersDaoImpl implements UsersDao {
 
     // 注册功能
     @Override
-    public int addUser(String username, String usercode, String password, String role) throws SQLException {
+    public int addUser(String username, String usercode, String password, String role, String AvatarUrl) throws SQLException {
         QueryRunner queryRunner = new QueryRunner(JdbcC3p0Utils.getDataSource());
-        String sql = "insert into users(`username`, `usercode`, `password`, `role`, `creationDate`, `modifyDate`) values(?,?,?,?)";
-        Object[] params = {username, usercode, password, role};
+        String sql = "insert into users(`username`, `usercode`, `password`, `role`, `AvatarUrl`) values(?,?,?,?,?)";
+        Object[] params = {username, usercode, password, role, AvatarUrl};
         return queryRunner.update(sql, params);
     }
 

@@ -102,6 +102,13 @@
                                                                    placeholder="请输入登录密码">
                                                         </div>
                                                         <div class="form-group">
+                                                            <label for="AvatarUrl">用户头像</label>
+                                                            <p></p>
+                                                            <input type="text" class="form-control wid100"
+                                                                   id="AvatarUrl" name="AvatarUrl"
+                                                                   placeholder="头像地址">
+                                                        </div>
+                                                        <div class="form-group">
                                                             <label for="addRole">用户角色</label>
                                                             <p></p>
                                                             <select name="addRole" id="addRole"

@@ -28,7 +28,7 @@
                     </li>
                     <li>
                         <a href="index.jsp">
-                            <span class="glyphicon glyphicon-home"></span>
+                            <span class="fa fa-home"></span>
                             <span>首页</span>
                         </a>
                     </li>
@@ -52,7 +52,7 @@
                     </li>
                     <li>
                         <a href="#">
-                            <span class="glyphicon glyphicon-picture"></span>
+                            <span class="fa fa-image"></span>
                             <span>相册</span>
                         </a>
                     </li>
@@ -119,7 +119,7 @@
                     </li>
                     <li>
                         <a href="#">
-                            <span class="glyphicon glyphicon-user"></span>
+                            <span class="fa fa-link"></span>
                             <span>友链</span>
                             <i class="glyphicon glyphicon-menu-right"></i>
                             <i style="display: none" class="glyphicon glyphicon-menu-down"></i>
@@ -139,11 +139,11 @@
                 </a>
             </div>
             <div> <a href="#">
-                <i class="glyphicon glyphicon-cog"></i>
+                <i class="fa fa-rss"></i>
                 <span>文章</span>
             </a></div>
             <div> <a href="#">
-                <i class="glyphicon glyphicon-cog"></i>
+                <i class="fa fa-comment"></i>
                 <span>评论</span>
             </a></div>
         </div>

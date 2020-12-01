@@ -10,11 +10,12 @@ public class User {
     private Integer role; // 用户身份 1/2/3
     private Date creationDate; // 用户创建的时间
     private Date modifyDate; // 用户修改的时间
+    private String AvatarUrl; // 头像
 
     public User() {
     }
 
-    public User(Integer id, String username, String usercode, String password, Integer role, Date creationDate, Date modifyDate) {
+    public User(Integer id, String username, String usercode, String password, Integer role, Date creationDate, Date modifyDate, String avatarUrl) {
         this.id = id;
         this.username = username;
         this.usercode = usercode;
@@ -22,6 +23,7 @@ public class User {
         this.role = role;
         this.creationDate = creationDate;
         this.modifyDate = modifyDate;
+        AvatarUrl = avatarUrl;
     }
 
     public Integer getId() {
@@ -80,6 +82,14 @@ public class User {
         this.modifyDate = modifyDate;
     }
 
+    public String getAvatarUrl() {
+        return AvatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        AvatarUrl = avatarUrl;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -90,6 +100,7 @@ public class User {
                 ", role=" + role +
                 ", creationDate=" + creationDate +
                 ", modifyDate=" + modifyDate +
+                ", AvatarUrl='" + AvatarUrl + '\'' +
                 '}';
     }
 }

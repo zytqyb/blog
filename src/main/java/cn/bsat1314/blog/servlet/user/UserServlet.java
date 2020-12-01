@@ -229,8 +229,9 @@ public class UserServlet extends HttpServlet {
             String addUserCode = req.getParameter("addUserCode");
             String addPassword = req.getParameter("addPassword");
             String addRole = req.getParameter("addRole");
+            String AvatarUrl = req.getParameter("AvatarUrl");
             UsersServiceImpl usersService = new UsersServiceImpl();
-            boolean result = usersService.addUser(addUserName, addUserCode, addPassword, addRole);
+            boolean result = usersService.addUser(addUserName, addUserCode, addPassword, addRole, AvatarUrl);
             if (result) {
                 try {
                     req.getSession().setAttribute("addResult", "true");

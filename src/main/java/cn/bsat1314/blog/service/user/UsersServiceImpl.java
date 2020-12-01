@@ -29,10 +29,10 @@ public class UsersServiceImpl implements UsersService{
 
     // 实现用户注册
     @Override
-    public boolean addUser(String username, String usercode, String password, String role) {
+    public boolean addUser(String username, String usercode, String password, String role, String AvatarUrl) {
         boolean result = false;
         try {
-            int i = usersDao.addUser(username, usercode, password, role);
+            int i = usersDao.addUser(username, usercode, password, role, AvatarUrl);
             if (i > 0) {
                 result = true;
             }

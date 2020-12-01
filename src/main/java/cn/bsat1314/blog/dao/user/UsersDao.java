@@ -12,7 +12,7 @@ public interface UsersDao {
     public User getLoginUser(String usercode) throws SQLException;
 
     // 添加用户
-    public int addUser(String username, String usercode, String password,String role) throws SQLException;
+    public int addUser(String username, String usercode, String password,String role, String AvatarUrl) throws SQLException;
 
     // 修改当前用户密码
     public int updatepwd(int id, String password) throws SQLException;

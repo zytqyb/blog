@@ -340,7 +340,7 @@ th {
 
 /* 用户管理界面增加和删除按钮的css样式 */
 .addDel {
-    width: 25%;
+    width: 280px;
     display: flex;
     justify-content: space-between;
     align-items: center;

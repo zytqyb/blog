@@ -1,7 +1,9 @@
 package cn.bsat1314.blog.servlet.blog;
 
 import cn.bsat1314.blog.pojo.Blog;
+import cn.bsat1314.blog.pojo.Category;
 import cn.bsat1314.blog.service.blog.BlogServiceImpl;
+import cn.bsat1314.blog.service.category.CategoryServiceImpl;
 import com.alibaba.fastjson.JSONArray;
 
 import javax.servlet.ServletException;
@@ -11,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -68,10 +71,15 @@ public class BlogServlet extends HttpServlet {
     // 通过前端传入的id查找博客文章内容
     public void getArticle(HttpServletRequest req, HttpServletResponse resp) {
         String id = req.getParameter("id");
+
         if (id != null) {
             BlogServiceImpl blogService = new BlogServiceImpl();
+            CategoryServiceImpl categoryService = new CategoryServiceImpl();
+            List<Category> categoryList = categoryService.getCategory();
             Blog blog = blogService.getBlog(Integer.valueOf(id));
             req.setAttribute("blog", blog);
+            // 分类列表
+            req.setAttribute("categoryList", categoryList);
             try {
                 req.getRequestDispatcher("/article.jsp").forward(req, resp);
             } catch (ServletException | IOException e) {

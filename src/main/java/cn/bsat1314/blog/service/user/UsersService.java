@@ -13,7 +13,7 @@ public interface UsersService {
     public User login(String usercode);
 
     // 添加用户
-    public boolean addUser(String username, String usercode, String password, String role);
+    public boolean addUser(String username, String usercode, String password, String role, String AvatarUrl);
 
     // 修改当前用户密码
     public boolean updatepwd(int id, String password);

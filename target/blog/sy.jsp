@@ -42,19 +42,18 @@
                             <div class="index-post-img">
                                 <a href="${pageContext.request.contextPath}/blog?method=getArticle&id=${blogList.id}">
                                     <!-- 展示文章头图 -->
-                                    <div class="post-img"
-                                         style="background-image: url(${blogList.photo})">
-                                    </div>
-
+                                    <img class="post-img" src="${blogList.photo}" alt="头图">
+                                </a>
                                     <div class="article-data" style="max-height: 200px">
+                                        <a href="${pageContext.request.contextPath}/blog?method=getArticle&id=${blogList.id}">
                                         <h2>${blogList.title}</h2>
+                                        </a>
                                         <p>
-                                                ${blogList.content100}......
+                                                ${blogList.content100}
                                         </p>
                                         <div class="line"></div>
                                     </div>
 
-                                </a>
                             </div>
                         </div>
                     </c:forEach>
@@ -102,7 +101,8 @@
                 <ul id="right-qh">
                     <li class="qh"><a href="javascript:"><span class="glyphicon glyphicon-thumbs-up"></span></a>
                     </li>
-                    <li><a href="javascript:"><span class="glyphicon glyphicon-comment"></span></a></li>
+                    <li><a href="javascript:"><span class="fa fa-comment-o"></span></a></li>
+
                     <li><a href="javascript:"><span class="glyphicon glyphicon-gift"></span></a></li>
                 </ul>
             </div>
@@ -378,6 +378,9 @@
 <script src="${pageContext.request.contextPath}/plugins/jquery_growl/jquery.growl.js"></script>
 <script src="${pageContext.request.contextPath}/home/js/index.js"></script>
 <script src="${pageContext.request.contextPath}/home/js/login.js"></script>
+<script>
+
+</script>
 </body>
 
 </html>
