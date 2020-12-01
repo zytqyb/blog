@@ -459,7 +459,7 @@ div {
     background-color: #f9f9f9;
 }
 
-.left-fotter {
+.left-footer {
     position: absolute;
     background-color: #ffffff;
     width: 100%;
@@ -468,13 +468,13 @@ div {
     height: 50px;
 }
 
-.left-fotter div {
+.left-footer div {
     flex: 1;
     justify-content: center;
     align-items: center;
 }
 
-.left-fotter div a {
+.left-footer div a {
     width: 100%;
     height: 100%;
     display: flex;

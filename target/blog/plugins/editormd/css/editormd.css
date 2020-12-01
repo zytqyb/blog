@@ -3511,6 +3511,7 @@
 
 blockquote p{
   padding: 5px 0;
+  margin-bottom: 0!important;
 }
 
 .markdown-body p,

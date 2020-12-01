@@ -1,7 +1,9 @@
 package cn.bsat1314.blog.servlet.blog;
 
 import cn.bsat1314.blog.pojo.Blog;
+import cn.bsat1314.blog.pojo.Category;
 import cn.bsat1314.blog.service.blog.BlogServiceImpl;
+import cn.bsat1314.blog.service.category.CategoryServiceImpl;
 import cn.bsat1314.blog.util.PageSupport;
 
 import javax.servlet.ServletException;
@@ -27,7 +29,8 @@ public class IndexServlet extends HttpServlet {
     public void query(HttpServletRequest req, HttpServletResponse resp) {
         PageSupport pageSupport = new PageSupport();
         BlogServiceImpl blogService = new BlogServiceImpl();
-
+        CategoryServiceImpl categoryService = new CategoryServiceImpl();
+        List<Category> categoryList = categoryService.getCategory();
         // 从前端加载数据
         String title = req.getParameter("title");
         String CategoryId = req.getParameter("CategoryId");
@@ -77,6 +80,8 @@ public class IndexServlet extends HttpServlet {
         req.setAttribute("currentPageNo", currentPageNo);
         // 总页数
         req.setAttribute("totalPageCount", totalPageCount);
+        // 分类列表
+        req.setAttribute("categoryList", categoryList);
         try {
             req.getRequestDispatcher("/sy.jsp").forward(req, resp);
         } catch (ServletException | IOException e) {

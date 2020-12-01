@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/css/login.css">
 </head>
 <body>
-<div class="container-fluid" style="height: 937px;">
+<div class="container-fluid">
     <div class="login-card">
-        <p style="text-align: center; padding: 20px; font-size: 16px">your personal blog , enjoy it</p>
+        <p style="text-align: center; padding: 20px; font-size: 16px">海底月是天上月，眼前人是心上人</p>
         <form id="login-form" method="post" action="${pageContext.request.contextPath}/login">
             <div class="form-group">
                 <label for="usercode">

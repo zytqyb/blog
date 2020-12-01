@@ -26,11 +26,11 @@
         <div class="main-box">
             <!-- 内容区头部 -->
             <header class="main-top">
-                <h1>${blog.title}</h1>
+                <h1 id="blogTitle"></h1>
                 <ul>
-                    <li><i class="fa fa-user"></i>${blog.username}</li>
-                    <li><i class="glyphicon glyphicon-time"></i>${blog.uploadTime}</li>
-                    <li><i class="glyphicon glyphicon-eye-open"></i>22次浏览</li>
+                    <li id="blogUsername"><i class="fa fa-user"></i></li>
+                    <li id="blogUploadTime"><i class="glyphicon glyphicon-time"></i></li>
+                    <li id=""><i class="glyphicon glyphicon-eye-open"></i>22次浏览</li>
                 </ul>
             </header>
             <!-- 主要内容区 -->
@@ -40,15 +40,13 @@
                     <li class="active">正文</li>
                 </ol>
 
-                <div class="post-img"
-                     style="background-image: url(${blog.photo})">
-                </div>
+                <div id="blogPhoto" class="post-img"></div>
 
                 <!--首页输出文章-->
                 <div class="blog-post">
                     <div class="single-post panel" style="padding: 30px">
                         <div id="test-editormd">
-                            　　<textarea style="display:none;" placeholder="markdown语言">${blog.content}</textarea>
+                            　　<textarea id="blogContent" style="display:none;" placeholder="markdown语言"></textarea>
                         </div>
                     </div>
                 </div>
@@ -349,6 +347,23 @@
 <script src="${pageContext.request.contextPath}/plugins/editormd/editormd.js"></script>
 
 <script type="text/javascript">
+    $.ajax({
+        type: "POST",
+        url: "/blog",
+        data: {method: "ajaxArticle", id: "1"},
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+            $("#blogTitle").html(data.blog.title);
+            $("#blogUsername").html(data.blog.username);
+            $("#blogUploadTime").html(data.blog.uploadTime);
+            $("#blogPhoto").css("backgroundImage", "url(" + data.blog.photo + ")")
+            $("#blogContent").val(data.blog.content);
+        },
+        error: function (data) {
+
+        }
+    })
     editormd.markdownToHTML("test-editormd", {
         htmlDecode      : "style,script,iframe",
         emoji           : true,

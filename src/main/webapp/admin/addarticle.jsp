@@ -84,19 +84,23 @@
             saveHTMLToTextarea : true//注意3：这个配置，方便post提交表单
         });
 
-        if (${result == null}) {
+        if (${result == false}) {
             Swal.fire({
                 icon: 'error',
                 text: '添加失败',
                 confirmButtonText: 'ok',
                 width: '475px',
                 confirmButtonColor: '#7cd1f9',
+            }).then((result) => {
+                if (result) {
+                    <%request.getSession().removeAttribute("result");%>
+                }
             })
         }
 
-        if (${result != null}) {
+        if (${result == true}) {
             Swal.fire({
-                icon: 'error',
+                icon: 'success',
                 text: '添加成功',
                 confirmButtonText: 'ok',
                 width: '475px',

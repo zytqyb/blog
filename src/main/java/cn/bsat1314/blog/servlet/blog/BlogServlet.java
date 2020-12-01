@@ -2,12 +2,16 @@ package cn.bsat1314.blog.servlet.blog;
 
 import cn.bsat1314.blog.pojo.Blog;
 import cn.bsat1314.blog.service.blog.BlogServiceImpl;
+import com.alibaba.fastjson.JSONArray;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class BlogServlet extends HttpServlet {
@@ -20,6 +24,8 @@ public class BlogServlet extends HttpServlet {
             this.addArticle(req, resp);
         }else if(method != null && method.equals("getArticle")) {
             this.getArticle(req, resp);
+        }else if(method != null && method.equals("ajaxArticle")) {
+            this.ajaxArticle(req, resp);
         }
     }
 
@@ -43,13 +49,14 @@ public class BlogServlet extends HttpServlet {
             boolean result = blogService.addArticle(title, content, photo, category, content100, username);
             if (result) {
                 try {
-                    req.getSession().setAttribute("result","添加成功");
+                    req.getSession().setAttribute("result",true);
                     resp.sendRedirect("/admin/addarticle.jsp");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }else {
                 try {
+                    req.getSession().setAttribute("result",false);
                     resp.sendRedirect("/admin/addarticle.jsp");
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -65,6 +72,36 @@ public class BlogServlet extends HttpServlet {
             BlogServiceImpl blogService = new BlogServiceImpl();
             Blog blog = blogService.getBlog(Integer.valueOf(id));
             req.setAttribute("blog", blog);
+            try {
+                req.getRequestDispatcher("/article.jsp").forward(req, resp);
+            } catch (ServletException | IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    // 通过ajax刷新文章
+    public void ajaxArticle(HttpServletRequest req, HttpServletResponse resp) {
+        String id = req.getParameter("id");
+        if (id != null) {
+            BlogServiceImpl blogService = new BlogServiceImpl();
+            Blog blog = blogService.getBlog(Integer.valueOf(id));
+            req.setAttribute("blog", blog);
+            Map<String, Blog> resultMap = new HashMap<>();
+            if (blog != null) {
+                resultMap.put("blog", blog);
+            }
+
+            try {
+                resp.setContentType("application/json"); // 设置返回的是json值
+                PrintWriter writer = resp.getWriter();
+                writer.write(JSONArray.toJSONString(resultMap));
+                writer.flush();
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
             try {
                 req.getRequestDispatcher("/article.jsp").forward(req, resp);
             } catch (ServletException | IOException e) {

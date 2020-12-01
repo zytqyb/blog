@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface BlogDao {
+
     // 添加一篇文章
     public int addBlog(String title, String content, String photo, String category, String content100, String username) throws SQLException;
 

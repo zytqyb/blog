@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!-- 左侧导航栏 -->
@@ -94,33 +95,11 @@
                             <i class="glyphicon glyphicon-menu-right"></i>
                         </a>
                         <ul class="secondary-menu">
+                            <c:forEach items="${categoryList}" var="category">
                             <li>
-                                <a href="javascript:">java教程</a>
+                                <a href="/index.jsp?CategoryId=${category.id}">${category.name}</a>
                             </li>
-                            <li>
-                                <a href="javascript:">js教程</a>
-                            </li>
-                            <li>
-                                <a href="javascript:">css教程</a>
-                            </li>
-                            <li>
-                                <a href="javascript:">html教程</a>
-                            </li>
-                            <li>
-                                <a href="javascript:">node.js教程</a>
-                            </li>
-                            <li>
-                                <a href="javascript:">Mongodb教程</a>
-                            </li>
-                            <li>
-                                <a href="javascript:">javaweb教程</a>
-                            </li>
-                            <li>
-                                <a href="javascript:">123基础</a>
-                            </li>
-                            <li>
-                                <a href="javascript:">12312412</a>
-                            </li>
+                            </c:forEach>
                         </ul>
                     </li>
                     <li id="ym">
@@ -131,33 +110,11 @@
                             <i style="display: none" class="glyphicon glyphicon-menu-down"></i>
                         </a>
                         <ul class="secondary-menu">
+
                             <li>
                                 <a href="javascript:">java教程</a>
                             </li>
-                            <li>
-                                <a href="javascript:">js教程</a>
-                            </li>
-                            <li>
-                                <a href="javascript:">css教程</a>
-                            </li>
-                            <li>
-                                <a href="javascript:">html教程</a>
-                            </li>
-                            <li>
-                                <a href="javascript:">node.js教程</a>
-                            </li>
-                            <li>
-                                <a href="javascript:">Mongodb教程</a>
-                            </li>
-                            <li>
-                                <a href="javascript:">javaweb教程</a>
-                            </li>
-                            <li>
-                                <a href="javascript:">123基础</a>
-                            </li>
-                            <li>
-                                <a href="javascript:">12312412</a>
-                            </li>
+
                         </ul>
                     </li>
                     <li>
@@ -173,9 +130,10 @@
             </nav>
         </div>
         <!-- 底部菜单 -->
-        <div class="left-fotter">
+        <div class="left-footer">
+
             <div>
-                <a href="#">
+                <a href="${pageContext.request.contextPath}/admin/admin.jsp">
                     <i class="glyphicon glyphicon-cog"></i>
                     <span>管理</span>
                 </a>
