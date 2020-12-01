@@ -375,6 +375,10 @@
         sequenceDiagram: true,
     });
 
+    if (<%=session.getAttribute("userSession") == null%>) {
+        $("#Avatar").css("display", "none");
+    }
+
 </script>
 </body>
 
