@@ -376,10 +376,13 @@
 <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
 <script src="${pageContext.request.contextPath}/plugins/bootstrap/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/jquery_growl/jquery.growl.js"></script>
+<script src="${pageContext.request.contextPath}/plugins/sweetalert2/dist/sweetalert2.min.js"></script>
 <script src="${pageContext.request.contextPath}/home/js/index.js"></script>
 <script src="${pageContext.request.contextPath}/home/js/login.js"></script>
 <script>
-
+    if (<%=session.getAttribute("userSession") == null%>) {
+        $("#Avatar").css("display", "none");
+    }
 </script>
 </body>
 

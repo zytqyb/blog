@@ -16,6 +16,7 @@
     <div class="login-card">
         <p style="text-align: center; padding: 20px; font-size: 16px">海底月是天上月，眼前人是心上人</p>
         <form id="login-form" method="post" action="${pageContext.request.contextPath}/login">
+            <input type="hidden" value="login">
             <div class="form-group">
                 <label for="usercode">
                     <i class="fa fa-user"></i> 账号
