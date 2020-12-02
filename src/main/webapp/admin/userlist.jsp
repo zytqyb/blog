@@ -25,9 +25,9 @@
             <div class="container-fluid">
                 <div class="wai">
                     <div class="panel panel-default" style="width: 100%">
-                        <div class="panel-heading">用户管理</div>
+                        <div class="panel-heading">文章管理</div>
                         <div class="panel-body">
-                            <form class="form-inline" method="post">
+                            <form id="czyh" class="form-inline" method="get" action="/admin/user">
                                 <input name="method" value="query" class="input-text" type="hidden">
                                 <div class="form-group">
                                     <label for="exampleInputName2">用户昵称:</label>
@@ -47,7 +47,7 @@
                                     </select>
                                     <%-- 给servlet的默认页码 --%>
                                     <input type="hidden" name="pageIndex" value="1">
-                                    <button type="submit" class="btn btn-default">查找</button>
+                                    <button onclick="$('#czyh').submit()" class="btn btn-default">查找</button>
 
                                 </div>
                                 <div class="addDel">
@@ -226,7 +226,7 @@
                                     </tr>
                                     <c:forEach var="userslist" items="${userList}">
                                         <tr>
-                                            <td><input type="checkbox" name="blogId" value="${userslist.id}"></td>
+                                            <td><input type="checkbox" name="userId" value="${userslist.id}"></td>
                                             <td>${userslist.username}</td>
                                             <td>${userslist.usercode}</td>
                                             <c:if test="${userslist.role == 1}">

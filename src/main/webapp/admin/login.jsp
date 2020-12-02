@@ -16,7 +16,6 @@
     <div class="login-card">
         <p style="text-align: center; padding: 20px; font-size: 16px">海底月是天上月，眼前人是心上人</p>
         <form id="login-form" method="post" action="${pageContext.request.contextPath}/login">
-            <input type="hidden" value="login">
             <div class="form-group">
                 <label for="usercode">
                     <i class="fa fa-user"></i> 账号
@@ -58,6 +57,24 @@
 <script id="ribbon_piao" mobile="true" src="${pageContext.request.contextPath}/admin/dist/ribbon.js"></script>
 <script>
     $(function() {
+        if (${error == "用户名或者密码不正确!"}) {
+            swal.fire({
+                icon: 'error',
+                text: '${error}',
+                confirmButtonText: 'ok',
+                width: '475px',
+                confirmButtonColor: '#7cd1f9',
+            })
+        }else if (${error == "该账号未注册,请注册后再登录!"}) {
+            swal.fire({
+                icon: 'error',
+                text: '${error}',
+                confirmButtonText: 'ok',
+                width: '475px',
+                confirmButtonColor: '#7cd1f9',
+            })
+        }
+
         code_draw();
         // 点击后刷新验证码
         $("#canvas").on('click', function() {

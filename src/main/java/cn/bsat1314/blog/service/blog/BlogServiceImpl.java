@@ -70,4 +70,15 @@ public class BlogServiceImpl implements BlogService{
         }
         return blog;
     }
+
+    @Override
+    public int deleteBlog(int blogId) {
+        int rs = 0;
+        try {
+            rs = blogDao.deleteBlog(blogId);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return rs;
+    }
 }

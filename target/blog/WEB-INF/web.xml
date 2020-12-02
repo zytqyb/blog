@@ -43,7 +43,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>BlogServlet</servlet-name>
-        <url-pattern>/blog</url-pattern>
+        <url-pattern>/admin/blog</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>IndexServlet</servlet-name>

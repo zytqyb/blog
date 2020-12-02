@@ -18,4 +18,7 @@ public interface BlogDao {
 
     // 通过id查询文章内容
     public Blog getBlog(Integer id) throws SQLException;
+
+    // 通过id删除指定文章
+    public int deleteBlog(int blogId) throws SQLException;
 }

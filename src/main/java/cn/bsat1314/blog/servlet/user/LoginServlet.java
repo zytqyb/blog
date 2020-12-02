@@ -28,7 +28,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String method = req.getParameter("method");
-        if (method != null && method.equals("login")) {
+        if (method == null) {
             this.login(req, resp);
         }else if(method != null && method.equals("ajaxLogin")) {
             this.ajaxLogin(req, resp);
@@ -73,10 +73,10 @@ public class LoginServlet extends HttpServlet {
                     e.printStackTrace();
                 }
             } else { // 查无此人, 无法登录
-                req.setAttribute("error", "用户名或者密码不正确");
+                req.setAttribute("error", "用户名或者密码不正确!");
                 try {
                     try {
-                        req.getRequestDispatcher("/sy.jsp").forward(req, resp);
+                        req.getRequestDispatcher("/admin/login.jsp").forward(req, resp);
                     } catch (ServletException e) {
                         e.printStackTrace();
                     }
@@ -86,9 +86,9 @@ public class LoginServlet extends HttpServlet {
             }
         } else { // 查无此人, 无法登录
             // 请求转发回登录页面,并且提示用户名或者密码错误
-            req.setAttribute("error", "用户名或者密码不正确");
+            req.setAttribute("error", "该账号未注册,请注册后再登录!");
             try {
-                req.getRequestDispatcher("/sy.jsp").forward(req, resp);
+                req.getRequestDispatcher("/admin/login.jsp").forward(req, resp);
             } catch (ServletException | IOException e) {
                 e.printStackTrace();
             }

@@ -1,9 +1,11 @@
 package cn.bsat1314.blog.servlet.blog;
 
+import cn.bsat1314.blog.dao.blog.BlogDaoImpl;
 import cn.bsat1314.blog.pojo.Blog;
 import cn.bsat1314.blog.pojo.Category;
 import cn.bsat1314.blog.service.blog.BlogServiceImpl;
 import cn.bsat1314.blog.service.category.CategoryServiceImpl;
+import cn.bsat1314.blog.util.PageSupport;
 import com.alibaba.fastjson.JSONArray;
 
 import javax.servlet.ServletException;
@@ -21,14 +23,17 @@ public class BlogServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        blogUtil blogUtil = new blogUtil();
         // 实现Servlet的复用
         String method = req.getParameter("method");
         if (method != null && method.equals("addArticle")) {
             this.addArticle(req, resp);
-        }else if(method != null && method.equals("getArticle")) {
-            this.getArticle(req, resp);
         }else if(method != null && method.equals("ajaxArticle")) {
             this.ajaxArticle(req, resp);
+        }else if(method != null && method.equals("query")) {
+            blogUtil.query(req, resp, "/admin/articlelist.jsp");
+        }else if (method != null && method.equals("deleteBlog")) {
+            this.deleteBlog(req, resp);
         }
     }
 
@@ -68,25 +73,7 @@ public class BlogServlet extends HttpServlet {
         }
     }
 
-    // 通过前端传入的id查找博客文章内容
-    public void getArticle(HttpServletRequest req, HttpServletResponse resp) {
-        String id = req.getParameter("id");
 
-        if (id != null) {
-            BlogServiceImpl blogService = new BlogServiceImpl();
-            CategoryServiceImpl categoryService = new CategoryServiceImpl();
-            List<Category> categoryList = categoryService.getCategory();
-            Blog blog = blogService.getBlog(Integer.valueOf(id));
-            req.setAttribute("blog", blog);
-            // 分类列表
-            req.setAttribute("categoryList", categoryList);
-            try {
-                req.getRequestDispatcher("/article.jsp").forward(req, resp);
-            } catch (ServletException | IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 
     // 通过ajax刷新文章
     public void ajaxArticle(HttpServletRequest req, HttpServletResponse resp) {
@@ -116,6 +103,34 @@ public class BlogServlet extends HttpServlet {
                 e.printStackTrace();
             }
         }
+    }
+
+    public void deleteBlog(HttpServletRequest req, HttpServletResponse resp) {
+        String[] blogId = req.getParameterValues("blogId");
+        if (blogId != null) {
+            BlogServiceImpl blogService = new BlogServiceImpl();
+            for (String s : blogId) {
+                int i = blogService.deleteBlog(Integer.parseInt(s));
+                if (i < 0) {
+                    break;
+                }
+            }
+            try {
+                req.getSession().setAttribute("result", "删除成功!");
+                resp.sendRedirect("/admin/blog?method=query");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else {
+            try {
+                req.getSession().setAttribute("result", "删除失败!");
+                resp.sendRedirect("/admin/blog?method=query");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+
     }
 
 }

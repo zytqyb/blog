@@ -100,7 +100,7 @@ function adduser() {
 
 function deleteUser() {
     let flag = false;
-    let idArray = document.getElementsByName("blogId");
+    let idArray = document.getElementsByName("userId");
     for (let i = 0; i < idArray.length; i++) {
         if (idArray[i].checked) {
             flag = true;

@@ -2,16 +2,16 @@
 
 <aside class="aside">
     <div class="logo-top">
-        <img src="img/logo.png" alt="logo">
+        <img src="${pageContext.request.contextPath}/admin/img/logo.png" alt="logo">
         <span>My blog</span>
     </div>
     <div class="user-tx">
-        <img src="img/avatar5.png" alt="头像" width="34px" height="34px">
+        <img src="${pageContext.request.contextPath}/admin/img/avatar5.png" alt="头像" width="34px" height="34px">
     </div>
     <ul class="left-nav">
         <li class="nav-header">Dashboard</li>
         <li>
-            <a href="#">
+            <a href="/admin/admin.jsp">
                 <i class="nav-icon fa fa-dashboard"></i>
                 <p>Dashboard</p>
             </a>
@@ -24,7 +24,7 @@
         </li>
         <li class="nav-header">管理模块</li>
         <li>
-            <a href="#">
+            <a href="${pageContext.request.contextPath}/admin/blog?method=query">
                 <i class="fa fa-list-alt nav-icon"></i>
                 <p>文章管理</p>
             </a>

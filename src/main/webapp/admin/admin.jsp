@@ -36,7 +36,7 @@
                     <h3>新增文章</h3>
                     <p>记心中所想</p>
                 </div>
-                <a href="#">let's go </a>
+                <a href="/admin/addarticle.jsp">let's go </a>
             </div>
             <div class="small-box" style="background: #28a745">
                 <div class="inner">

@@ -40,7 +40,7 @@
                     <c:forEach var="blogList" items="${blogList}">
                         <div class="single-post panel" style="height: 451px">
                             <div class="index-post-img">
-                                <a href="${pageContext.request.contextPath}/blog?method=getArticle&id=${blogList.id}">
+                                <a href="${pageContext.request.contextPath}/index.jsp?method=getArticle&id=${blogList.id}">
                                     <!-- 展示文章头图 -->
                                     <img class="post-img" src="${blogList.photo}" alt="头图">
                                 </a>

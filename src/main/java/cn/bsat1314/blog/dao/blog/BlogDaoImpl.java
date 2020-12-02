@@ -85,4 +85,12 @@ public class BlogDaoImpl implements BlogDao{
         String sql = "select * from blog where id = ?";
         return queryRunner.query(sql, new BeanHandler<>(Blog.class), id);
     }
+
+    // 删除博客文章
+    @Override
+    public int deleteBlog(int blogId) throws SQLException {
+        QueryRunner queryRunner = new QueryRunner(JdbcC3p0Utils.getDataSource());
+        String sql = "delete from blog where id = ?";
+        return queryRunner.update(sql, blogId);
+    }
 }

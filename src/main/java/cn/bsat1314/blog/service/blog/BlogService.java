@@ -18,4 +18,7 @@ public interface BlogService {
 
     // 通过id拿到文章数据
     public Blog getBlog(Integer id);
+
+    // 通过id对文章进行删除操作
+    public int deleteBlog(int blogId);
 }
