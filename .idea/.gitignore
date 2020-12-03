@@ -2,7 +2,7 @@
 /shelf/
 /workspace.xml
 # Datasource local storage ignored files
-/../../../../:\github仓库\blog\.idea/dataSources/
+/../../../../../:\前端项目集合\测试1\blog\.idea/dataSources/
 /dataSources.local.xml
 # 基于编辑器的 HTTP 客户端请求
 /httpRequests/
