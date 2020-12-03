@@ -1,13 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/cn/bsat1314/blog/pojo/Blog.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/admin/dist/canvas-nest.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/admin/dist/canvas-ribbon.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/admin/dist/click_heart.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/admin/dist/piao.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/admin/dist/ribbon.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/c3p0-config.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/bsat1314/blog/dao/JdbcC3p0Utils.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/bsat1314/blog/dao/blog/BlogDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/bsat1314/blog/dao/blog/BlogDaoImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/bsat1314/blog/dao/category/CategoryDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/bsat1314/blog/dao/category/CategoryImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/bsat1314/blog/dao/role/RoleDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/bsat1314/blog/dao/role/RoleDaoImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/bsat1314/blog/dao/user/UsersDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/bsat1314/blog/dao/user/UsersDaoImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/bsat1314/blog/filter/MyFilter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/bsat1314/blog/filter/SysFilter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/bsat1314/blog/pojo/Category.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/bsat1314/blog/pojo/Role.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/bsat1314/blog/pojo/User.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/bsat1314/blog/service/blog/BlogService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/bsat1314/blog/service/blog/BlogServiceImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/bsat1314/blog/service/category/CategoryService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/bsat1314/blog/service/category/CategoryServiceImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/bsat1314/blog/service/role/RoleService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/bsat1314/blog/service/role/RoleServiceImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/bsat1314/blog/service/user/UsersService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/bsat1314/blog/service/user/UsersServiceImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/bsat1314/blog/servlet/blog/BlogServlet.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/bsat1314/blog/servlet/blog/IndexServlet.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/bsat1314/blog/servlet/blog/blogUtil.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/bsat1314/blog/servlet/user/LoginServlet.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/bsat1314/blog/servlet/user/LogoutServlet.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/bsat1314/blog/servlet/user/UserServlet.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/bsat1314/blog/util/Constants.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/cn/bsat1314/blog/util/PageSupport.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/admin/dist/canvas-nest.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/admin/dist/canvas-ribbon.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/admin/dist/click_heart.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/admin/dist/piao.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/admin/dist/ribbon.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/webapp/admin/dist/canvas-nest.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/webapp/admin/dist/canvas-ribbon.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/webapp/admin/dist/click_heart.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/webapp/admin/dist/piao.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/webapp/admin/dist/ribbon.js" charset="UTF-8" />
   </component>
 </project>
