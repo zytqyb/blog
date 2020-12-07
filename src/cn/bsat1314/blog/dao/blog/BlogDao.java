@@ -24,4 +24,7 @@ public interface BlogDao {
 
     // 随机返回n个文章
     public List<Blog> getNumberBLog(int number) throws SQLException;
+
+    // 通过id修改文章内容
+    public int modifyBlog(int id, String title, String content, String content100, String photo, Integer category) throws SQLException;
 }

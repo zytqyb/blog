@@ -10,6 +10,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.mysql.jdbc.StringUtils;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,10 +20,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-// 实现Servlet复用
+// 用户操作
+@WebServlet("/admin/user")
 public class UserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // 实现Servlet复用
         String method = req.getParameter("method");
         if (method != null && method.equals("savepwd")) {
             this.updatePwd(req, resp);

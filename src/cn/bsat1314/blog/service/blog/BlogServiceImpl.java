@@ -91,4 +91,16 @@ public class BlogServiceImpl implements BlogService{
         }
         return numberBLog;
     }
+
+    // 修改文章
+    @Override
+    public int modifyBlog(int id, String title, String content, String content100, String photo, Integer category) {
+        int i = 0;
+        try {
+            i = blogDao.modifyBlog(id, title, content, content100, photo, category);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return i;
+    }
 }

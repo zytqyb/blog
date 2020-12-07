@@ -36,11 +36,11 @@
                 <form style="display: none" class="login-top" id="login-form">
                     <div class="form-group">
                         <label for="usercode">用户名</label>
-                        <input class="form-control" type="text" name="usercode" id="usercode" placeholder="用户名或电子邮箱">
+                        <input class="form-control" type="text" name="usercode" id="usercode" placeholder="用户名或电子邮箱" required>
                     </div>
                     <div class="form-group">
                         <label for="password">密码</label>
-                        <input class="form-control" type="password" name="password" id="password" placeholder="密码">
+                        <input class="form-control" type="password" name="password" id="password" placeholder="密码" required>
                     </div>
                     <button class="an" type="button" value="登录" id="login">登录</button>
 <%--                    <div style="display: none" id="info" class="info"></div>--%>
@@ -52,12 +52,12 @@
                 <div>
                     <a id="signImg" href="javascript:">
                         <span>${userSession.username} <i class="caret"></i></span>
-                        <img class="img-circle img-40px" src="https://q.qlogo.cn/g?b=qq&nk=1713684374&s=100" alt="">
+                        <img class="img-circle img-40px" src="${AvatarUrl}" alt="">
                     </a>
                 </div>
                 <ul class="guanli" style="display: none">
                     <li class="guanlitop">
-                        <p>下午好, ${userSession.username}</p>
+                        <p>你好, ${userSession.username}</p>
                     </li>
                     <li>
                         <a href="/admin/addarticle.jsp">
@@ -66,7 +66,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:;">
+                        <a href="/admin/blog?method=query">
                             <i class="fa fa-edit"></i>
                             文章管理
                         </a>

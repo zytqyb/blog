@@ -5,6 +5,7 @@ import cn.bsat1314.blog.service.blog.BlogServiceImpl;
 import com.alibaba.fastjson.JSONArray;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,7 +14,8 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+// 首页渲染等等Servlet
+@WebServlet("/index.jsp")
 public class IndexServlet extends HttpServlet {
 
     @Override

@@ -24,4 +24,7 @@ public interface BlogService {
 
     // 随机返回n个文章
     public List<Blog> getNumberBLog(int number);
+
+    // 通过id修文章内容
+    public int modifyBlog(int id, String title, String content, String content100, String photo, Integer category);
 }

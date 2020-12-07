@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="zh-CN">
 
@@ -25,7 +26,7 @@
             <div class="container-fluid">
                 <div class="wai">
                     <div class="panel panel-default" style="width: 100%">
-                        <div class="panel-heading">用户管理</div>
+                        <div class="panel-heading">文章管理</div>
                         <div class="panel-body">
                             <form class="form-inline" method="get" action="${pageContext.request.contextPath}/admin/blog">
                                 <input name="method" value="query" class="input-text" type="hidden">
@@ -69,8 +70,8 @@
                                             <td><input type="checkbox" name="blogId" value="${blogList.id}"></td>
                                             <td>${blogList.title}</td>
                                             <td>${blogList.username}</td>
-                                            <td>${blogList.uploadTime}</td>
-                                            <td>${blogList.modifyDate}</td>
+                                            <td><fmt:formatDate type="both"  dateStyle="medium" timeStyle="medium" value="${blogList.uploadTime}"/></td>
+                                            <td><fmt:formatDate type="both"  dateStyle="medium" timeStyle="medium" value="${blogList.modifyDate}"/></td>
                                         </tr>
                                     </c:forEach>
                                 </table>
@@ -112,6 +113,51 @@
 <script src="${pageContext.request.contextPath}/admin/js/common.js"></script>
 <script src="${pageContext.request.contextPath}/admin/js/admin.js"></script>
 <script>
+
+    if (${addBlogRs == 0}) {
+        Swal.fire({
+            icon: 'error',
+            text: '添加失败',
+            confirmButtonText: 'ok',
+            width: '475px',
+            confirmButtonColor: '#7cd1f9',
+        }).then((result) => {
+            if (result) {
+                <%request.getSession().removeAttribute("addBlogRs");%>
+            }
+        })
+    }
+
+
+    if (${addBlogRs == 1}) {
+        Swal.fire({
+            icon: 'success',
+            text: '添加成功',
+            confirmButtonText: 'ok',
+            width: '475px',
+            confirmButtonColor: '#7cd1f9',
+        }).then((result) => {
+            if (result) {
+                <%request.getSession().removeAttribute("addBlogRs");%>
+            }
+        })
+    }
+
+
+    if (${ModifyBlogRs == 1}) {
+        Swal.fire({
+            icon: 'success',
+            text: '修改成功',
+            confirmButtonText: 'ok',
+            width: '475px',
+            confirmButtonColor: '#7cd1f9',
+        }).then((result) => {
+            if (result) {
+                <%request.getSession().removeAttribute("ModifyBlogRs");%>
+            }
+        })
+    }
+
     function deleteBlog() {
         let flag = false;
         let idArray = document.getElementsByName("blogId");
@@ -141,11 +187,45 @@
         } else {
             swal.fire({
                 icon: 'error',
-                text: '请选择需要删除的用户',
+                text: '请选择需要删除的文章',
                 confirmButtonText: 'ok',
                 width: '475px',
                 confirmButtonColor: '#7cd1f9',
             })
+        }
+    }
+
+    function modifyUser() {
+        let flag = 0;
+        let index;
+        let idArray = document.getElementsByName("blogId");
+        for (let i = 0; i < idArray.length; i++) {
+            if (idArray[i].checked) {
+                flag++;
+                index = idArray[i].value;
+            }
+            if (flag > 1) {
+                break;
+            }
+        }
+        if (flag === 0) {
+            swal.fire({
+                icon: 'error',
+                text: '请选择一个文章进行修改',
+                confirmButtonText: 'ok',
+                width: '475px',
+                confirmButtonColor: '#7cd1f9',
+            })
+        } else if (flag > 1) {
+            swal.fire({
+                icon: 'error',
+                text: '只能选择一个文章进行修改',
+                confirmButtonText: 'ok',
+                width: '475px',
+                confirmButtonColor: '#7cd1f9',
+            })
+        } else {
+            $(location).attr('href', '/admin/blog?method=getModifyArticle&id=' + index);
         }
     }
 </script>

@@ -6,6 +6,7 @@ import cn.bsat1314.blog.util.Constants;
 import com.alibaba.fastjson.JSONArray;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,6 +22,8 @@ import java.util.Map;
 /**
  * @author bsat
  */
+// 用户登录
+@WebServlet("/login")
 public class LoginServlet extends HttpServlet {
     // 处理登录请求
     // Servlet: 控制层,调用业务层代码
@@ -62,6 +65,7 @@ public class LoginServlet extends HttpServlet {
             if (user.getUsercode().equals(usercode) && user.getPassword().equals(password)) {
                 // 将用户的信息换号Session中;
                 session.setAttribute(Constants.USER_SESSION, user);
+                System.out.println(user.getAvatarUrl());
                 session.setAttribute("time", sdf.format(time));
                 // 登录成功后跳转重定向到后台页面
                 req.getSession().setAttribute("success", 0);
@@ -97,6 +101,7 @@ public class LoginServlet extends HttpServlet {
 
     // ajax方法登录
     public void ajaxLogin(HttpServletRequest req, HttpServletResponse resp){
+
         // 获取用户名和密码
         String usercode = req.getParameter("usercode");
         String password = req.getParameter("password");
@@ -104,6 +109,7 @@ public class LoginServlet extends HttpServlet {
         // 和数据库中的密码进行对比, 调用业务层;
         UsersServiceImpl usersService = new UsersServiceImpl();
         User user = usersService.login(usercode);
+
         // 万能的Map : 结果集
         Map<String, String> resultMap = new HashMap<String, String>();
         if (user != null) {
@@ -123,14 +129,14 @@ public class LoginServlet extends HttpServlet {
                 req.getSession().setAttribute("success", 0);
                 // 把登录的昵称响应添加给session
                 req.getSession().setAttribute("username", user.getUsername());
+                req.getSession().setAttribute("AvatarUrl", user.getAvatarUrl());
                 resultMap.put("result", "success");
-                resultMap.put("username", user.getUsername());
             } else { // 密码错误, 无法登录
-                resultMap.put("result", "error");
+                resultMap.put("result", "pawError");
             }
         } else { // 查无此人, 无法登录
             // 请求转发回登录页面,并且提示用户名或者密码错误
-            resultMap.put("result", "errors");
+            resultMap.put("result", "userError");
         }
         try {
             resp.setContentType("application/json"); // 设置返回的是json值

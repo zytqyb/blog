@@ -7,6 +7,7 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
+import org.junit.Test;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -98,4 +99,14 @@ public class BlogDaoImpl implements BlogDao{
         String sql = "SELECT * FROM `blog` ORDER BY RAND() LIMIT ?";
         return queryRunner.query(sql, new BeanListHandler<>(Blog.class), number);
     }
+
+    // 实现修改文章
+    @Override
+    public int modifyBlog(int id, String title, String content, String content100, String photo, Integer category) throws SQLException {
+        QueryRunner queryRunner = new QueryRunner(JdbcC3p0Utils.getDataSource());
+        Object[] params = {title, content, content100, photo, category, id};
+        String sql = "update blog set `title` = ?, content = ?, content100 = ?, photo = ?, category = ? where `id` = ?";
+        return queryRunner.update(sql, params);
+    }
+
 }

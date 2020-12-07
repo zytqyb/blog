@@ -169,7 +169,7 @@ function modifyUser() {
         $('#modifyUser').modal();
         $("#modifyUserBtn").click(function () {
             if ($("#rolePassword").val() === $("#modifyPassword").val() && $("#rolePassword").val() != "") {
-                console.log(1)
+
                 if ($("#modifyPassword").val() === $("#newModifyPassword").val()) {
                     $("#modifyForm").submit();
                 }else {
@@ -179,7 +179,7 @@ function modifyUser() {
                     }, imgNo + "俩次密码不一样,请重新输入", false)
                 }
             }else {
-                console.log(2)
+
                 validateTip($("#modifyPassword").prev(), {
                     "color": "red",
                     "margin-bottom": "5px"

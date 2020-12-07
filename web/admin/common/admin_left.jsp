@@ -35,12 +35,12 @@
                 <p>用户管理</p>
             </a>
         </li>
-        <li>
-            <a href="#">
-                <i class="fa fa-heart nav-icon"></i>
-                <p>友链管理</p>
-            </a>
-        </li>
+<%--        <li>--%>
+<%--            <a href="#">--%>
+<%--                <i class="fa fa-heart nav-icon"></i>--%>
+<%--                <p>友链管理</p>--%>
+<%--            </a>--%>
+<%--        </li>--%>
 
         <li class="nav-header">系统管理</li>
         <li>

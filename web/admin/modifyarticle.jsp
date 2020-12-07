@@ -25,22 +25,23 @@
             <div class="container-fluid">
                 <div class="wai">
                     <div class="panel panel-default" style="width: 100%; position: relative">
-                        <div class="panel-heading">发布文章</div>
+                        <div class="panel-heading">修改文章</div>
                         <div class="panel-body" style="overflow: hidden; padding-bottom: 50px">
                             <form id="addArticle" class="form-inline" action="${pageContext.request.contextPath}/admin/blog"
                                   method="post" style="min-height: 850px;">
-                                <input name="method" value="addArticle" class="input-text" type="hidden">
+                                <input name="method" value="ModifyBlog" class="input-text" type="hidden">
+                                <input type="hidden" name="id" value="${blog.id}">
                                 <div class="form-group">
                                     <input type="text" class="form-control col-sm-6" placeholder="请输入文章标题" name="title"
-                                           style="width: 50%; height: 38px">
+                                           style="width: 50%; height: 38px" value="${blog.title}">
                                     <input type="text" class="form-control col-sm-6" placeholder="请填入文章头图url"
                                            name="photo"
-                                           style="width: 50%; height: 38px">
+                                           style="width: 50%; height: 38px" value="${blog.photo}">
                                     <img width="100%" height="300px" id="img" src="" alt="文章头图" style="display: none; border-radius: 4px;">
                                     <input type="text" class="form-control col-sm-6" placeholder="请输入文章摘要(用于首页展示)"
                                            name="content100"
-                                           style="width: 50%; height: 38px">
-                                    <input type="text" class="form-control col-sm-6" value="${userSession.username}"
+                                           style="width: 50%; height: 38px" value="${blog.content100}">
+                                    <input type="text" class="form-control col-sm-6" value="${blog.username}"
                                            readonly="readonly" placeholder="作者" name="username"
                                            style="width: 50%; height: 38px">
                                     <select name="category" id="blogCategoryId"
@@ -52,9 +53,9 @@
                                     </select>
                                     <%-- editor.md编辑器 --%>
 
-                                    <div id="my-editormd">
+                                    <div id="my-editormd" style="max-height: 800px; overflow: hidden">
                                         <textarea id="my-editormd-markdown-doc" name="my-editormd-markdown-doc"
-                                                  style="display:none;"></textarea>
+                                                  style="display:none;">${blog.content}</textarea>
                                     </div>
 
                                 </div>
@@ -63,7 +64,7 @@
 
                         </div>
                         <button class="addan btn btn-success"
-                                onclick="$('#addArticle').submit()">添加
+                                onclick="$('#addArticle').submit()">修改
                         </button>
                     </div>
                 </div>
@@ -88,8 +89,6 @@
 <script src="${pageContext.request.contextPath}/plugins/editormd/editormd.js"></script>
 <script type="text/javascript">
     $(function () {
-
-
         let editor = editormd("my-editormd", {
             width: "100%",
             height: "80%",
@@ -97,17 +96,37 @@
             saveHTMLToTextarea: true//注意3：这个配置，方便post提交表单
         });
 
-    });
-    $("input[name='photo']").on("blur", function () {
-        $("#img").attr("src", $(this).val());
-        if ($("#img").attr("src") == "") {
-            console.log(1)
-            $("#img").hide();
-        }else {
+        // 修改文章失败提示
+        if (${ModifyBlogRs == 0}) {
+            Swal.fire({
+                icon: 'error',
+                text: '修改失败, 请稍后重试',
+                confirmButtonText: 'ok',
+                width: '475px',
+                confirmButtonColor: '#7cd1f9',
+            }).then((result) => {
+                if (result) {
+                    <%request.getSession().removeAttribute("ModifyBlogRs");%>
+                }
+            })
+        }
+
+        if ($("#img").attr("src") != "") {
             $("#img").show();
         }
 
-    })
+        // 切换文章头图是否显示
+        $("input[name='photo']").on("blur", function () {
+            $("#img").attr("src", $(this).val());
+            if ($("#img").attr("src") == "") {
+                $("#img").hide();
+            }else {
+                $("#img").show();
+            }
+        })
+    });
+
+
 </script>
 </body>
 </html>

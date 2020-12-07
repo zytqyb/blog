@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="zh-CN">
 
@@ -25,7 +26,7 @@
             <div class="container-fluid">
                 <div class="wai">
                     <div class="panel panel-default" style="width: 100%">
-                        <div class="panel-heading">文章管理</div>
+                        <div class="panel-heading">用户管理</div>
                         <div class="panel-body">
                             <form id="czyh" class="form-inline" method="get" action="/admin/user">
                                 <input name="method" value="query" class="input-text" type="hidden">
@@ -238,8 +239,9 @@
                                             <c:if test="${userslist.role == 3}">
                                                 <td>普通用户</td>
                                             </c:if>
-                                            <td>${userslist.creationDate}</td>
-                                            <td>${userslist.modifyDate}</td>
+
+                                            <td><fmt:formatDate type="both"  dateStyle="medium" timeStyle="medium" value="${userslist.creationDate}"/></td>
+                                            <td><fmt:formatDate type="both"  dateStyle="medium" timeStyle="medium" value="${userslist.modifyDate}"/></td>
                                         </tr>
                                     </c:forEach>
                                 </table>
