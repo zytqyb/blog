@@ -27,13 +27,14 @@
         <!-- 右侧登录等按钮 -->
         <ul>
             <!-- 登录按钮 -->
-            <li class="sign <c:if test="${userSession != null}" >hidden</c:if>">
+            <li class="sign">
                 <a id="sign" href="javascript:">
                     <i class="fa fa-user"></i>
                     <span class="caret"></span>
                 </a>
                 <!-- 登录框 -->
-                <form style="display: none" class="login-top" id="login-form">
+                <form style="display: none" class="login-top" id="login-form"
+                      action="${pageContext.request.contextPath}/login" method="post">
                     <div class="form-group">
                         <label for="usercode">用户名</label>
                         <input class="form-control" type="text" name="usercode" id="usercode" placeholder="用户名或电子邮箱">
@@ -47,40 +48,35 @@
                 </form>
                 <!-- 登录框结束 -->
             </li>
+
             <!-- 登录后 -->
-            <li id="Avatar" class="Avatar">
+            <li class="Avatar">
                 <div>
                     <a id="signImg" href="javascript:">
-                        <span>${userSession.username} <i class="caret"></i></span>
-                        <img class="img-circle img-40px" src="https://q.qlogo.cn/g?b=qq&nk=1713684374&s=100" alt="">
+                        <span>zytqyb <i class="caret"></i></span>
                     </a>
+                    <img class="img-circle img-40px" src="https://q.qlogo.cn/g?b=qq&nk=1713684374&s=100" alt="">
                 </div>
-                <ul class="guanli" style="display: none">
+                <ul class="guanli">
                     <li class="guanlitop">
-                        <p>下午好, ${userSession.username}</p>
+                        <p>下午好, zytqyb</p>
                     </li>
                     <li>
-                        <a href="/admin/addarticle.jsp">
+                        <a href="">
                             <i class="fa fa-edit"></i>
                             新建文章
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:;">
+                        <a href="">
                             <i class="fa fa-edit"></i>
                             文章管理
                         </a>
                     </li>
                     <li style="margin-bottom: 10px">
-                        <a href="/admin/admin.jsp">
+                        <a href="">
                             <i class="fa fa-edit"></i>
                             后台管理
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li style="margin-bottom: 10px">
-                        <a href="/logout">
-                            退出
                         </a>
                     </li>
                 </ul>
