@@ -180,9 +180,9 @@ public class UserServlet extends HttpServlet {
     // 删除用户
     public void deleteUser(HttpServletRequest req, HttpServletResponse resp) {
         // 获取前端传过来的id
-        String[] blogId = req.getParameterValues("blogId");
+        String[] userId = req.getParameterValues("userId");
         UsersServiceImpl usersService = new UsersServiceImpl();
-        for (String s : blogId) {
+        for (String s : userId) {
             int i = usersService.deleteUserList(Integer.parseInt(s));
             if (i < 0) {
                 break;

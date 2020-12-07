@@ -68,6 +68,7 @@ public class BlogServiceImpl implements BlogService{
         return blog;
     }
 
+    // 通过id删除文章
     @Override
     public int deleteBlog(int blogId) {
         int rs = 0;
@@ -77,5 +78,17 @@ public class BlogServiceImpl implements BlogService{
             throwables.printStackTrace();
         }
         return rs;
+    }
+
+    // 随机获取n条文章
+    @Override
+    public List<Blog> getNumberBLog(int number) {
+        List<Blog> numberBLog = null;
+        try {
+            numberBLog = blogDao.getNumberBLog(number);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return numberBLog;
     }
 }

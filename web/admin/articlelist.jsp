@@ -27,7 +27,7 @@
                     <div class="panel panel-default" style="width: 100%">
                         <div class="panel-heading">用户管理</div>
                         <div class="panel-body">
-                            <form class="form-inline" method="get" action="/admin/blog">
+                            <form class="form-inline" method="get" action="${pageContext.request.contextPath}/admin/blog">
                                 <input name="method" value="query" class="input-text" type="hidden">
                                 <div class="form-group">
                                     <label for="exampleInputName2">文章名称:</label>

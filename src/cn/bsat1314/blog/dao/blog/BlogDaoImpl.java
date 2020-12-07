@@ -90,4 +90,12 @@ public class BlogDaoImpl implements BlogDao{
         String sql = "delete from blog where id = ?";
         return queryRunner.update(sql, blogId);
     }
+
+    // 随机返回n个文章
+    @Override
+    public List<Blog> getNumberBLog(int number) throws SQLException {
+        QueryRunner queryRunner = new QueryRunner(JdbcC3p0Utils.getDataSource());
+        String sql = "SELECT * FROM `blog` ORDER BY RAND() LIMIT ?";
+        return queryRunner.query(sql, new BeanListHandler<>(Blog.class), number);
+    }
 }

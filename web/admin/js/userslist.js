@@ -138,7 +138,7 @@ function deleteUser() {
 function modifyUser() {
     let flag = 0;
     let index;
-    let idArray = document.getElementsByName("blogId");
+    let idArray = document.getElementsByName("userId");
     for (let i = 0; i < idArray.length; i++) {
         if (idArray[i].checked) {
             flag++;

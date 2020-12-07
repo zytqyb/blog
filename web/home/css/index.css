@@ -98,6 +98,10 @@ div {
     .main-zhong {
         margin-left: 0 !important;
     }
+
+    .Avatar {
+        display: none;
+    }
 }
 
 /* 2.小屏幕下 大于等于768 布局容器改为750px */

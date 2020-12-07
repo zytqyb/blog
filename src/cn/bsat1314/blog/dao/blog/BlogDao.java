@@ -21,4 +21,7 @@ public interface BlogDao {
 
     // 通过id删除指定文章
     public int deleteBlog(int blogId) throws SQLException;
+
+    // 随机返回n个文章
+    public List<Blog> getNumberBLog(int number) throws SQLException;
 }

@@ -60,7 +60,6 @@
     <filter-mapping>
         <filter-name>MyFilter</filter-name>
         <url-pattern>/*</url-pattern>
-        <dispatcher>FORWARD</dispatcher>
     </filter-mapping>
 
     <!-- 用户登录过滤器 -->

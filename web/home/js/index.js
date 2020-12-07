@@ -18,6 +18,26 @@
 //     $("#ssk").css("")
 // })
 
+$.ajax({
+    type: "get",
+    url: "/index.jsp",
+    data: {method: "getNumberBLog", number: 6},
+    dataType: "json",
+    success: function (data) {
+        console.log(data)
+        for (let i = 0; i < data.result.length; i++) {
+            $(randomBlog).append(" <li>" + "<a class='wz-pane-img' href='index.jsp?method=getArticle&id=7'>" +
+                "<img src='https://www.bsat1314.cn/usr/themes/handsome/assets/img/sj2/1.jpg' alt=''>" +
+                "</a>" + "<div class='wz-pane-a'>" + "<a href=''>" + "<h4 class='h5 l-h text-second'>"+ data.result[i].title + "</h4>" +
+                "<div class='liulan'><span class='glyphicon glyphicon-eye-open'></span></div>" +
+                "</a>" + "</div>" + "</li> ")
+        }
+    },
+    error: function (data) {
+
+    }
+})
+
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 })

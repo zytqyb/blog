@@ -2,6 +2,7 @@ package cn.bsat1314.blog.service.blog;
 
 import cn.bsat1314.blog.pojo.Blog;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface BlogService {
@@ -20,4 +21,7 @@ public interface BlogService {
 
     // 通过id对文章进行删除操作
     public int deleteBlog(int blogId);
+
+    // 随机返回n个文章
+    public List<Blog> getNumberBLog(int number);
 }

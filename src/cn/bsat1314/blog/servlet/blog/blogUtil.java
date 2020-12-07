@@ -40,6 +40,7 @@ public class blogUtil {
         BlogServiceImpl blogService = new BlogServiceImpl();
         CategoryServiceImpl categoryService = new CategoryServiceImpl();
         List<Category> categoryList = categoryService.getCategory();
+
         // 从前端加载数据
         String title = req.getParameter("title");
         String CategoryId = req.getParameter("CategoryId");
@@ -97,5 +98,7 @@ public class blogUtil {
             e.printStackTrace();
         }
     }
+
+
 
 }
