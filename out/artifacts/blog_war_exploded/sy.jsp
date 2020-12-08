@@ -42,14 +42,14 @@
                 <!--首页输出文章-->
                 <div class="blog-post">
                     <c:forEach var="blogList" items="${blogList}">
-                        <div class="single-post panel">
+                        <div class="single-post panel sypanel">
                             <div class="index-post-img">
                                 <a href="${pageContext.request.contextPath}/index.jsp?method=getArticle&id=${blogList.id}">
                                     <!-- 展示文章头图 -->
                                     <img class="post-img" src="${blogList.photo}" alt="头图">
                                 </a>
                                     <div class="article-data" style="max-height: 200px">
-                                        <a href="${pageContext.request.contextPath}/blog?method=getArticle&id=${blogList.id}">
+                                        <a href="${pageContext.request.contextPath}/index.jsp?method=getArticle&id=${blogList.id}">
                                         <h2>${blogList.title}</h2>
                                         </a>
                                         <p>

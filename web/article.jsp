@@ -47,7 +47,7 @@
 
                 <!--首页输出文章-->
                 <div class="blog-post">
-                    <div class="single-post panel" style="padding: 30px">
+                    <div class="single-post panel" style="padding: 30px; ">
                         <div id="test-editormd">
                             　　<textarea id="blogContent" style="display:none;" placeholder="markdown语言">${blog.content}</textarea>
                         </div>
@@ -78,6 +78,7 @@
 <script src="${pageContext.request.contextPath}/plugins/editormd/lib/flowchart.min.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/editormd/lib/jquery.flowchart.min.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/editormd/editormd.js"></script>
+<script src="${pageContext.request.contextPath}/plugins/layer/layer.js"></script>
 
 <script type="text/javascript">
     // $.ajax({
@@ -112,6 +113,8 @@
         $("#Avatar").css("display", "none");
     }
 
+    <!--复制弹框-->
+    document.body.oncopy = function() {layer.msg('复制成功，若要转载请务必保留本文链接！');};
 </script>
 </body>
 

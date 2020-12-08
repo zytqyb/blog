@@ -23,5 +23,6 @@
     <orderEntry type="library" name="lib" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.38" level="application_server_libraries" />
     <orderEntry type="library" name="feather-icons" level="application" />
+    <orderEntry type="library" name="servlet-api" level="project" />
   </component>
 </module>

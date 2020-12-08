@@ -47,7 +47,7 @@
 
                 <!--首页输出文章-->
                 <div class="blog-post">
-                    <div class="single-post panel" style="padding: 30px">
+                    <div class="single-post panel" style="padding: 30px; ">
                         <div id="test-editormd">
                             　　<textarea id="blogContent" style="display:none;" placeholder="markdown语言">${blog.content}</textarea>
                         </div>

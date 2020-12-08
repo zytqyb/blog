@@ -670,7 +670,7 @@ div {
 
 }
 
-.blog-post .panel:hover {
+.sypanel:hover {
     transform: translateY(-10px);
     border-radius: 6px;
     box-shadow: 1px 1px 5px 5px rgba(255, 112, 173, 0.35);
