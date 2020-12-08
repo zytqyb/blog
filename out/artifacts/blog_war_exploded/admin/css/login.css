@@ -1,0 +1,64 @@
+.login-card {
+    width: 485px;
+    height: 480px;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    border: 0 solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+    box-shadow: 0 0 1px rgba(0, 0, 0, .125), 0 1px 3px rgba(0, 0, 0, .2);
+    background: #ffffff;
+}
+
+.row {
+    border-top: 1px solid #ddd;
+    margin: 0;
+    padding: 20px 2px 0 2px;
+    display: flex;
+}
+
+.row button {
+    flex: 1;
+    background: #007bff;
+}
+
+.row #register {
+    margin-right: 1px;
+}
+
+.row #login {
+    margin-left: 1px;
+}
+
+.row button:hover {
+    background: #0069d9;
+}
+
+.yzm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.yzm input, .code {
+    flex: 1;
+}
+
+.code {
+    margin-left: 20px;
+    background: #e3e8fb;
+}
+
+canvas {
+    margin-left: 50px;
+}
+
+
+
