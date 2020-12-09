@@ -130,6 +130,7 @@
 <script src="${pageContext.request.contextPath}/home/js/index.js"></script>
 <script src="${pageContext.request.contextPath}/home/js/login.js"></script>
 
+
 <%--<script src="${pageContext.request.contextPath}/js/bg/a7.js"></script>--%>
 <script>
     if (<%=session.getAttribute("userSession") == null%>) {
