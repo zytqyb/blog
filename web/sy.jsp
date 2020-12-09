@@ -29,7 +29,9 @@
         <div class="main-box">
             <!-- 内容区头部 -->
             <header class="main-top">
-                <h1>邱同学的小破站</h1>
+                <h1 id="blogBt">
+                    邱同学的小破站
+                </h1>
                 <span>" 记住,无论以后遇到什么,都不要对这个世界失去希望 "</span>
             </header>
             <!-- 主要内容区 -->
@@ -84,7 +86,7 @@
                         <li id="previous" class="<c:if test="${currentPageNo <=1}">
                         disabled
                         </c:if>">
-                            <a href="index.jsp?title=${title}&CategoryId=${queryCategoryId}&pageIndex=${currentPageNo-1}" aria-label="Previous">
+                            <a href="${pageContext.request.contextPath}/indexServlet?title=${title}&CategoryId=${queryCategoryId}&pageIndex=${currentPageNo-1}" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
@@ -96,13 +98,13 @@
 
                         <li class="<%if (currentPageNo == i){%>active<%}%>">
                         <%-- 跳转页数 --%>
-                        <a href="index.jsp?title=${title}&CategoryId=${queryCategoryId}&pageIndex=<%=i%>"><%=i%></a></li>
+                        <a href="${pageContext.request.contextPath}/indexServlet?title=${title}&CategoryId=${queryCategoryId}&pageIndex=<%=i%>"><%=i%></a></li>
                         <%}%>
 
                         <li id="next" class="<c:if test="${currentPageNo >= totalPageCount}">
                             disabled
                             </c:if>">
-                            <a href="index.jsp?title=${title}&CategoryId=${queryCategoryId}&pageIndex=${currentPageNo+1}" >
+                            <a href="${pageContext.request.contextPath}/indexServlet?title=${title}&CategoryId=${queryCategoryId}&pageIndex=${currentPageNo+1}" >
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>

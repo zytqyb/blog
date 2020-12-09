@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 // 首页渲染等等Servlet
-@WebServlet("/index.jsp")
+@WebServlet("/indexServlet")
 public class IndexServlet extends HttpServlet {
 
     @Override
