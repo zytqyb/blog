@@ -17,7 +17,7 @@
     <div class="top-nav">
 
         <!-- 搜索框 -->
-        <form class="top-form" action="javascript:">
+        <form class="top-form" action="${pageContext.request.contextPath}/indexServlet">
             <div class="top-ss">
                 <input class="form-control" id="ssk" name="title" type="search" required placeholder="输入关键词搜索...">
                 <button type="submit" style="padding: 0;outline-offset:-6px; margin-left: 1px"

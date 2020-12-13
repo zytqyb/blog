@@ -31,13 +31,12 @@
                             <form class="form-inline" method="get" action="${pageContext.request.contextPath}/admin/blog">
                                 <input name="method" value="query" class="input-text" type="hidden">
                                 <div class="form-group">
-                                    <label for="exampleInputName2">文章名称:</label>
+                                    <label for="exampleInputName2">文章名称</label>
                                     <input type="text" class="form-control" id="exampleInputName2" name="title"
                                            value="${title}">
                                     <%-- 给servlet的默认页码 --%>
                                     <input type="hidden" name="pageIndex" value="1">
                                     <button type="submit" class="btn btn-default">查找</button>
-
                                 </div>
                                 <div class="addDel">
                                     <button type="button" onclick="$(location).attr('href','/admin/addarticle.jsp')" class="btn btn-success" id="addBtn">

@@ -31,13 +31,13 @@ $(document).on("click", function () {
 
 });
 
-let error = $("#info").html();
-if (error != null && error.length > 0) {
-    $.growl.warning({
-        title: "登录通知",
-        message: "账号或密码错误!"
-    })
-}
+// let error = $("#info").html();
+// if (error != null && error.length > 0) {
+//     $.growl.warning({
+//         title: "登录通知",
+//         message: "账号或密码错误!"
+//     })
+// }
 
 $("#login").on("click", function () {
     if ($("#usercode").val() != "" && $("#password").val() != "") {

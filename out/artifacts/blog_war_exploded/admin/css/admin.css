@@ -1,3 +1,104 @@
+/* 1.超小屏幕下 小于768 布局容器宽度为100% */
+@media screen and (max-width: 767px) {
+    .container-fluid {
+        width: 100%;
+    }
+
+    .aside {
+        display: none;
+    }
+
+    .main {
+        flex: 1;
+        margin-left: 0 !important;
+    }
+
+   .panel-body .form-group {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .panel-body .form-inline {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .panel-body .form-group label {
+        min-width: 70px;
+        height: 52px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0!important;
+    }
+
+    .panel-body .form-group .btn {
+        height: 32px !important;
+        margin-left: 10px;
+    }
+
+    .addDel {
+        width: 100% !important;
+    }
+
+}
+
+/* 2.小屏幕下 大于等于768 布局容器改为750px */
+@media screen and (min-width: 768px) {
+    .container-fluid {
+        width: 750px;
+    }
+
+    .form-group {
+
+    }
+
+    .panel-body .form-inline {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+
+    .form-group .btn {
+        height: 32px !important;
+        margin-left: 10px;
+    }
+}
+
+/* 3.中等屏幕下 大于等于992px 布局容器修改为970px*/
+@media screen and (min-width: 992px) {
+    .container-fluid {
+        width: 970px;
+    }
+
+    .panel-body .form-inline {
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+}
+
+/* 4.大屏幕下 大于等于1200 布局容器修改为1170px */
+@media screen and (min-width: 1200px) {
+    .container-fluid {
+        width: 1170px;
+    }
+}
+
+/* 5.大屏幕下 大于等于1800 布局容器修改为1300px */
+@media screen and (min-width: 1800px) {
+    .container-fluid {
+        width: 1300px;
+    }
+}
+
 body {
     width: 100%;
     min-height: 100%;
@@ -33,7 +134,6 @@ a:focus {
 }
 
 
-
 .aside {
     background: #343a40;
     width: 250px;
@@ -51,7 +151,6 @@ a:focus {
 .aside::-webkit-scrollbar {
     display: none;
 }
-
 
 
 .logo-top {
@@ -134,7 +233,7 @@ a:focus {
 
 .main {
     flex: 1;
-    margin-left: 250px !important;
+    margin-left: 250px;
 }
 
 .main-header {
@@ -185,6 +284,7 @@ a:focus {
 .rn {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .small-box {
@@ -263,12 +363,8 @@ a:focus {
 
 }
 
+
 .form-group {
-    width: 100%;
-}
-
-
-.form-group input {
     width: 100%;
 }
 
@@ -293,7 +389,8 @@ a:focus {
 
 .panel-body .form-inline {
     width: 100%;
-    display: flex
+    display: flex;
+    justify-content: space-between;
 }
 
 .panel-body .form-inline .form-group input, .form-control {

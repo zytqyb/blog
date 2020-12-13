@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<div class="container-fluid">
+<div class="container-fluid fl">
 
     <jsp:include page="common/admin_left.jsp"/>
 
@@ -43,7 +43,7 @@
                     <h3>总文章数</h3>
                     <p>统计文章数量</p>
                 </div>
-                <a href="#">let's go </a>
+                <a href="/admin/blog?method=query">let's go </a>
             </div>
             <div class="small-box" style="background: #007bff">
                 <div class="inner">
@@ -64,14 +64,14 @@
             </div>
             <div class="small-box" style="background: #dc3545">
                 <div class="inner">
-                    <h3>标签总量</h3>
+                    <h3>功能维护中</h3>
                     <p>文章标签的管理</p>
                 </div>
                 <a href="#">let's go </a>
             </div>
             <div class="small-box" style="background: #343a40">
                 <div class="inner">
-                    <h3>友情链接</h3>
+                    <h3>功能维护中</h3>
                     <p>管理友链</p>
                 </div>
                 <a href="#">let's go </a>

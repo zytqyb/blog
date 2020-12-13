@@ -31,10 +31,10 @@
                             <form id="czyh" class="form-inline" method="get" action="/admin/user">
                                 <input name="method" value="query" class="input-text" type="hidden">
                                 <div class="form-group">
-                                    <label for="exampleInputName2">用户昵称:</label>
+                                    <label for="exampleInputName2">用户昵称</label>
                                     <input type="text" class="form-control" id="exampleInputName2" name="queryname"
-                                           value="${queryname}">
-                                    <label style="margin-left: 20px" for="queryUserRole">用户角色:</label>
+                                           value="${queryname}" style="margin-right: 10px">
+                                    <label for="queryUserRole">用户角色</label>
                                     <select name="queryUserRole" id="queryUserRole" class="form-control"
                                             style="width: 120px;">
                                         <c:if test="${roleList != null }">
