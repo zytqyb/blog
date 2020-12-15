@@ -527,6 +527,8 @@ div {
 .secondary-menu li a {
     padding-left: 50px !important;
     -webkit-transition: all .2s ease-in-out 0s;
+    color: rgb(119, 119, 119);
+    font-size: 14px;
 }
 
 .left-rn ul li a:hover,

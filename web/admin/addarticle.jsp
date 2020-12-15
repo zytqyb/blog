@@ -46,9 +46,12 @@
                                     <select name="category" id="blogCategoryId"
                                             class="form-control wid100"
                                             style="margin-top: 5px; height:38px">
-                                        <option value="1">Mysql</option>
-                                        <option value="2">Java</option>
-                                        <option value="3">JavaScript</option>
+                                        <option value="1">Java</option>
+                                        <option value="2">JavaScript</option>
+                                        <option value="3">Css</option>
+                                        <option value="4">Html</option>
+                                        <option value="5">数据库</option>
+                                        <option value="6">JavaWeb</option>
                                     </select>
                                     <%-- editor.md编辑器 --%>
 
